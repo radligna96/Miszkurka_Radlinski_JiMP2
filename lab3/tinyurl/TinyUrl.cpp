@@ -7,5 +7,5 @@
 void funkcja()
 {
     
-    cout<<"nanana";
+    cout<<"lalalala";
 }
