@@ -10,10 +10,25 @@
 #include <array>
 #include <memory>
 #include <iostream>
-using namespace std;
+#include <map>
+#include <vector>
+#include <memory>
+
+using ::std::string;
+using ::std::unique_ptr;
+using ::std::map;
+
+struct TinyUrlCodec
+{
+    std::array<char, 6> arr;
+};
+
 namespace tinyurl {
 
-    void NextHash(array<char, 6> *state);
-
+    std::unique_ptr<TinyUrlCodec> Init();
+    void NextHash(std::array<char, 6> *state);
+    std::string Encode(const std::string &url, std::unique_ptr<TinyUrlCodec> *codec);
+    std::string Decode(const std::unique_ptr<TinyUrlCodec> &codec, const std::string &hash);
 }
+
 #endif //JIMP_EXERCISES_TINYURL_H
