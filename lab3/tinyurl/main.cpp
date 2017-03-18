@@ -8,13 +8,11 @@
 int main(){
 
 
-    std::string code = "0ZZZZZ";
+    std::string code = "000000";
     std::array<char, 6> tab;
 
     for (int i = 0; i < 6; ++i)
         (tab)[i] = code[i];
-
-    tinyurl::NextHash(&tab);
 
     std::vector<std::string> tinyUrlBunchOfUrlsTestData
             {"https://google.com", "https://wikipedia.org", "https://regex101.com/",
@@ -33,20 +31,20 @@ int main(){
              "https://www.memrise.com/", "https://www.duolingo.com/"
             };
 
-    unique_ptr<TinyUrlCodec> codec = tinyurl::Init();
-    std::cout<<codec->arr.begin()<<std::endl;
-    map<string, string> hashes;
-    for (auto url : tinyUrlBunchOfUrlsTestData) {
-        const auto hash = tinyurl::Encode(url, &codec);
-        auto i = hashes.find(hash);
-        if (i != hashes.end()) {
+    unique_ptr<tinyurl::TinyUrlCodec> codec = tinyurl::Init();
 
-            std::cout << "URL: " << url << " conflicts with URL: " << i->second << " (Both have hash: " << hash << ")";
-        } else {
-            hashes.emplace_hint(i, hash, url);
-        }
+    for (auto url : tinyUrlBunchOfUrlsTestData) {
+
+        tinyurl::NextHash(&tab);
+        string tmp = "";
+        for (int i = 0; i < 6; ++i)
+            tmp += tab[i];
+        codec->bitch.emplace(tmp, url);
+
     }
 
-
+    for(const auto &n : codec->bitch) {
+        std::cout << n.first << " -> " << n.second<<std::endl;
+    }
         return 0;
 }
