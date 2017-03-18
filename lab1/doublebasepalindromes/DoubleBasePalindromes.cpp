@@ -19,7 +19,8 @@ uint64_t DoubleBasePalindromes(int max_vaule_exculsive)
         string dwojkowe;
         char tab[1000];
         if (czy_palindrom(slowo)) {
-            dwojkowe = itoa(i, tab, 2);
+            itoa(i, tab, 2);
+            dwojkowe = tab;
             if (czy_palindrom(dwojkowe)) {
                 suma += i;
             }

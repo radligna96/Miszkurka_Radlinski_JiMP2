@@ -1,7 +1,7 @@
 //
 // Created by Ignacy on 3/17/2017.
 //
-#include <sstream>
+
 #include "SmartTree.h"
 using namespace datastructures;
 int main ()
@@ -17,7 +17,13 @@ int main ()
     root->left = InsertRightChild(std::move(root->left), CreateLeaf(4321));
     root->right = InsertLeftChild(std::move(root->right), CreateLeaf(897));
     root->right = InsertRightChild(std::move(root->right), CreateLeaf(761));
-    cout<<head->value;
-    PrintTreeInOrder(root, &ss);
+    root->right->right = InsertRightChild(move(root->right->right), CreateLeaf(888));
+    root->right->right->right = InsertRightChild(move(root->right->right->right), CreateLeaf(901));
+
+    //PrintTreeInOrder(root, &ss);
+    string str1, str2 = "[99 [100 [1234 [none] [none]] [4321 [none] [none]]] "
+            "[88 [897 [none] [none]] [761 [none] [888 [none] [901 [none] [none]]]]]]";
+    str1 = DumpTree(root);
+    cout<<endl<<str1<<endl<<str2;
     return 0;
 }

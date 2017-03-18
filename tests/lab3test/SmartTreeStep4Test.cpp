@@ -47,11 +47,11 @@ TEST_F(SmartTreeStep4Tests, WorksProperlyWithInbalancedTree) {
 }
 
 TEST_F(SmartTreeStep4Tests, WorksProperlyWithRightlyInbalancedTree) {
-  root->right->right = InsertLeftChild(move(root->right->right), CreateLeaf(888));
-  root->right->right->right = InsertLeftChild(move(root->right->right->right), CreateLeaf(901));
+  root->right->right = InsertRightChild(move(root->right->right), CreateLeaf(888));
+  root->right->right->right = InsertRightChild(move(root->right->right->right), CreateLeaf(901));
   auto tree = DumpTree(root);
   EXPECT_EQ(
-      "[99 [100 [1234 [none] [none]] [4321 [none] [none]]] "
-          "[88 [897 [none] [none]] [761 [888 [none] [none]] [none]]]]",
+          "[99 [100 [1234 [none] [none]] [4321 [none] [none]]] "
+                  "[88 [897 [none] [none]] [761 [none] [888 [none] [901 [none] [none]]]]]]",
       tree);
 }

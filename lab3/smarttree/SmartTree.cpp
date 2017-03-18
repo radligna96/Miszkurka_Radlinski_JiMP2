@@ -2,7 +2,6 @@
 // Created by Ignacy on 3/17/2017.
 //
 
-#include <sstream>
 #include "SmartTree.h"
 namespace datastructures
 {
@@ -34,6 +33,65 @@ namespace datastructures
         PrintTreeInOrder(unique_ptr->left, out);
         *out << unique_ptr->value<<", ";
         PrintTreeInOrder(unique_ptr->right, out);
+    }
+
+    string ufnkcja(const std::unique_ptr<SmartTree> &tree, string str)
+    {
+        ostringstream ss;
+        ss << tree->value;
+        string value= ss.str();
+        if ((tree== nullptr )) return "[none]";
+        else {
+
+            if (tree->left != nullptr) {
+
+                return ("[" + value + ufnkcja(tree->left, str) + " ]");
+            }
+
+            if (tree->right != nullptr) {
+
+                return ("[" + value + ufnkcja(tree->right, str) + " ]");
+            }
+        }
+
+
+    }
+
+    void ufnkcja2(const std::unique_ptr<SmartTree> &tree, string * str)
+    {
+
+        if ((tree==nullptr))
+        {
+            *str += " [none]";
+        }
+        else {
+            ostringstream ss;
+            ss << tree->value;
+            string value= ss.str();
+
+            *str += " [" + value + "";
+            ufnkcja2(tree->left, str);
+            //*str +=  " ]";
+
+           // *str += ("[" );
+            ufnkcja2(tree->right, str);
+           *str +=  "]";
+            }
+        }
+
+
+
+
+    std::string DumpTree(const std::unique_ptr<SmartTree> &tree)
+    {
+        string str = "",str2;
+        //str = ufnkcja(tree, str);
+        ufnkcja2(tree, &str);
+        cout<<str;
+        for(int i=1; i<str.length(); i++)
+            str2+=str[i];
+
+            return str2;
     }
 
 
