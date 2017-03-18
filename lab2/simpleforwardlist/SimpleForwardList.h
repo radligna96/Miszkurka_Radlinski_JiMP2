@@ -7,12 +7,7 @@
 
 #define JIMP_EXERCISES_SIMPLEFORWARDLIST_H
 
-
-
 using namespace std;
-
-
-
 #include "iostream"
 
 #include "iostream"
@@ -35,35 +30,18 @@ using namespace std;
 
 #include "string.h"
 
-
-
-
-
 struct ForwardList
-
 {
-
     int value;
-
     ForwardList *next;
-
 };
 
-
-
-
-
 ForwardList *CreateNode(int value);
-
 void show (ForwardList *tmp);
-
 ForwardList *PushFront(ForwardList *list, int value);
-
 void Append(ForwardList *list, ForwardList *tail);
-
 void DestroyList(ForwardList *list);
 
-void funkcja();
 
 
 
