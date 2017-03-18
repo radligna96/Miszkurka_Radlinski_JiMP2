@@ -17,9 +17,11 @@ namespace datastructures
         unique_ptr<SmartTree> left;
         unique_ptr<SmartTree> right;
     };
-    unique_ptr <SmartTree> CreateLeaf(int value);
-    unique_ptr <SmartTree> InsertLeftChild(std::unique_ptr<SmartTree> tree, std::unique_ptr<SmartTree> left_subtree);
-
+    //unique_ptr<SmartTree> root;
+    unique_ptr<SmartTree> CreateLeaf(int value);
+    unique_ptr<SmartTree> InsertLeftChild(std::unique_ptr<SmartTree> tree, std::unique_ptr<SmartTree> left_subtree);
+    unique_ptr <SmartTree> InsertRightChild(std::unique_ptr<SmartTree> tree, std::unique_ptr<SmartTree> right_subtree);
+    void PrintTreeInOrder(const std::unique_ptr<SmartTree> &unique_ptr, std::ostream *out);
 
 }
 #endif //JIMP_EXERCISES_SMARTTREE_H

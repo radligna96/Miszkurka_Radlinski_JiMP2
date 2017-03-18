@@ -6,10 +6,9 @@
 namespace datastructures
 {
 
-    unique_ptr <SmartTree> CreateLeaf(int value)
-    {
+    unique_ptr<SmartTree> CreateLeaf(int value) {
+        //auto ptr1 = make_unique<SmartTree>(value);
         unique_ptr<SmartTree> ptr1(new SmartTree);
-       // auto song = make_unique<SmartTree>(value);
         ptr1->value = value;
         ptr1->left = nullptr;
         ptr1->right = nullptr;
@@ -18,12 +17,22 @@ namespace datastructures
 
     unique_ptr <SmartTree> InsertLeftChild(unique_ptr<SmartTree> tree, unique_ptr<SmartTree> left_subtree)
     {
-        SmartTree * wsk;
-        wsk = tree.get();
-        while (wsk->left != nullptr)
-            wsk = wsk->left.get();
-        //wsk->left = left_subtree;
+        tree -> left = move(left_subtree);
 
+        return tree;
+    }
+    unique_ptr <SmartTree> InsertRightChild(unique_ptr<SmartTree> tree, unique_ptr<SmartTree> right_subtree)
+    {
+        tree -> right = move(right_subtree);
+        return tree;
+    }
+
+    void PrintTreeInOrder(const std::unique_ptr<SmartTree> &unique_ptr, std::ostream *out)
+    {
+        if(unique_ptr == nullptr) return;
+        PrintTreeInOrder(unique_ptr->left);
+        std::cout << node->data<< std::endl;
+        PrintTreeInOrder(node->right);
     }
 
 
