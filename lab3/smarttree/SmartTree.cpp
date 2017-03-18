@@ -2,6 +2,7 @@
 // Created by Ignacy on 3/17/2017.
 //
 
+#include <sstream>
 #include "SmartTree.h"
 namespace datastructures
 {
@@ -30,9 +31,9 @@ namespace datastructures
     void PrintTreeInOrder(const std::unique_ptr<SmartTree> &unique_ptr, std::ostream *out)
     {
         if(unique_ptr == nullptr) return;
-        PrintTreeInOrder(unique_ptr->left);
-        std::cout << node->data<< std::endl;
-        PrintTreeInOrder(node->right);
+        PrintTreeInOrder(unique_ptr->left, out);
+        *out << unique_ptr->value<<", ";
+        PrintTreeInOrder(unique_ptr->right, out);
     }
 
 

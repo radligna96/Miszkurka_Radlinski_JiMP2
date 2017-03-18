@@ -6,8 +6,10 @@
 #define JIMP_EXERCISES_SMARTTREE_H
 
 #include "iostream"
+#include <string>
 #include "memory"
 using namespace std;
+using ::std::stringstream;
 
 namespace datastructures
 {
