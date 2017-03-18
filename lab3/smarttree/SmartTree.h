@@ -30,6 +30,7 @@ namespace datastructures
     string ufnkcja(const std::unique_ptr<SmartTree> &tree, string str);
     void ufnkcja2(const std::unique_ptr<SmartTree> &tree, string * str);
     std::string DumpTree(const std::unique_ptr<SmartTree> &tree);
+    std::unique_ptr <SmartTree> RestoreTree(const std::string &tree);
 
 
 }
