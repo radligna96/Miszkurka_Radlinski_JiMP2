@@ -5,19 +5,19 @@
 #include "SmartTree.h"
 using namespace datastructures;
 int main ()
-
 {
-    std::cout<<"ooo";
+    string str;
     stringstream ss;
-    unique_ptr<datastructures::SmartTree> head = datastructures::CreateLeaf(10);
-    auto root = CreateLeaf(99);
-    root = InsertLeftChild(std::move(root), CreateLeaf(100));
-    root = InsertRightChild(std::move(root), CreateLeaf(88));
-    root->left = InsertLeftChild(std::move(root->left), CreateLeaf(1234));
-    root->left = InsertRightChild(std::move(root->left), CreateLeaf(4321));
-    root->right = InsertLeftChild(std::move(root->right), CreateLeaf(897));
-    root->right = InsertRightChild(std::move(root->right), CreateLeaf(761));
-    cout<<head->value;
+    unique_ptr<datastructures::SmartTree> root;
+    root = CreateLeaf(99);
+    root = InsertLeftChild(move(root), CreateLeaf(100));
+    root = InsertRightChild(move(root), CreateLeaf(88));
+    root->left = InsertLeftChild(move(root->left), CreateLeaf(1234));
+    root->left = InsertRightChild(move(root->left), CreateLeaf(4321));
+    root->right = InsertLeftChild(move(root->right), CreateLeaf(897));
+    root->right = InsertRightChild(move(root->right), CreateLeaf(761));
     PrintTreeInOrder(root, &ss);
+    //str = DumpTree(root);
+    cout <<root->value;
     return 0;
 }

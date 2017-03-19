@@ -36,5 +36,30 @@ namespace datastructures
         PrintTreeInOrder(unique_ptr->right, out);
     }
 
+    std::string DumpTree(const std::unique_ptr<SmartTree> &tree)
+    {
+
+        string str;
+        if
+        DumpTreeHelp(tree, &str);
+        return str;
+    }
+
+    void DumpTreeHelp(const std::unique_ptr<SmartTree> &tree, string *str)
+    {
+        char phrase[10];
+        if(tree == nullptr)
+        {
+            *str += "[none]";
+            return;
+        }
+        DumpTreeHelp(tree->left, str);
+
+        //itoa(tree->value, phrase, 2);
+        cout<<phrase<<endl;
+
+        *str += phrase;
+        DumpTreeHelp(tree->right, str);
+    }
 
 }
