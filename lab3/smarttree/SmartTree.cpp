@@ -57,11 +57,9 @@ namespace datastructures
 */
     void ufnkcja2(const std::unique_ptr<SmartTree> &tree, string * str)
     {
-
         if ((tree==nullptr))
-        {
             *str += " [none]";
-        }
+
         else {
             ostringstream ss;
             ss << tree->value;
@@ -79,38 +77,70 @@ namespace datastructures
 
     std::string DumpTree(const std::unique_ptr<SmartTree> &tree)
     {
-        string str = "",str2;
+        string str = "",str2="";
         //str = ufnkcja(tree, str);
         ufnkcja2(tree, &str);
-        cout<<str;
+        //cout<<str;
         for(int i=1; i<str.length(); i++)
             str2+=str[i];
-
-            return str2;
+        return str2;
     }
-    std::unique_ptr <SmartTree> RestoreTree(const std::string &tree)
+    unique_ptr <SmartTree> RestoreTree(const string &tree)
     {
-        string liczba_str;
-        unique_ptr<datastructures::SmartTree> root;
-        for (int i = 0; i<tree.length();i++)
-        {
-
-                if(tree[i]>47 and tree[i]<58)
-                {
-                    liczba_str += tree[i];
-                }
-                if (tree[i]==32)
-                {
-                    int val;
-                    istringstream iss(liczba_str);
-                    iss >> val;
-                    root = CreateLeaf(val);
-                    cout<<val<<" ";
-                    liczba_str = "";
-                }
+        if (tree == "[none]")
+            return nullptr;
+        
+        unsigned long iterator = 1;
+        string value;
+        unsigned long stringsize = tree.length();
+        
+        while (iterator < stringsize){
+            if (tree[iterator]==' '){
+                value=tree.substr(1, iterator);
+                iterator++;
+                break;
+            }
+            iterator++;
         }
+        //left child
+        int bracketscounter = 0;
+        unsigned long leftstart = iterator;
+        std::string leftchild;
+        while (iterator < stringsize){
+            if (tree[iterator]=='['){
+                bracketscounter+=1;
+            }
+            else if (tree[iterator]==']'){
+                bracketscounter-=1;
+            }
+            if (bracketscounter==0){
+                leftchild = tree.substr(leftstart, iterator-leftstart+1);
+                iterator+=2;
+                break;
+            }
+            iterator++;
+        }
+        
+        //right child
+        bracketscounter = 0;
+        unsigned long rightstart = iterator;
+        std::string rightchild;
+        while (iterator < stringsize){
+            if (tree[iterator]=='['){
+                bracketscounter+=1;
+            }
+            else if (tree[iterator]==']'){
+                bracketscounter-=1;
+            }
+            if (bracketscounter==0){
+                rightchild = tree.substr(rightstart, iterator-rightstart+1);
+                break;
+            }
+            iterator++;
+        }
+        auto root = CreateLeaf(std::stoi(value));
+        root->left = RestoreTree(leftchild);
+        root->right = RestoreTree(rightchild);
         return root;
     }
-
-
 }
