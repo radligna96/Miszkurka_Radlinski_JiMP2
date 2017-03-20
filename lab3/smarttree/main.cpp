@@ -7,7 +7,7 @@ using namespace datastructures;
 int main ()
 
 {
-    std::cout<<"ooo";
+    std::cout<<"o"<<"oo";
     stringstream ss;
     unique_ptr<datastructures::SmartTree> head = datastructures::CreateLeaf(10);
     auto root = CreateLeaf(99);
@@ -24,6 +24,9 @@ int main ()
     string str1, str2 = "[99 [100 [1234 [none] [none]] [4321 [none] [none]]] "
             "[88 [897 [none] [none]] [761 [none] [888 [none] [901 [none] [none]]]]]]";
     str1 = DumpTree(root);
-    cout<<endl<<str1<<endl<<str2;
+    cout<<endl<<str1<<endl<<str2<<endl;
+    RestoreTree("[99 [100 [1234 [none] [none]] [4321 [none] [none]]] [88 [897 [none] [none]] [761 [none] [none]]]]");
+
     return 0;
+
 }

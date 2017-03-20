@@ -39,9 +39,9 @@ std::string Encode(const std::string &url, std::unique_ptr<TinyUrlCodec> *codec)
 {
 
     string str;
-    for (auto el : codec->get()->hash) {
-        str += el;
-    }
+    for (auto letter_in_hash: codec->get()->hash)
+        str += letter_in_hash;
+
     codec->get()->bitch.emplace(str, url);
     NextHash(&codec->get()->hash);
     return str;
