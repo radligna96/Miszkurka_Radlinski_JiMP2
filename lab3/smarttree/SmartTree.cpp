@@ -2,6 +2,7 @@
 // Created by Ignacy on 3/17/2017.
 //
 
+#include <regex>
 #include "SmartTree.h"
 namespace datastructures
 {
@@ -34,7 +35,7 @@ namespace datastructures
         *out << unique_ptr->value<<", ";
         PrintTreeInOrder(unique_ptr->right, out);
     }
-/*
+
     string ufnkcja(const std::unique_ptr<SmartTree> &tree, string str)
     {
         ostringstream ss;
@@ -53,13 +54,17 @@ namespace datastructures
                 return ("[" + value + ufnkcja(tree->right, str) + " ]");
             }
         }
+
+
     }
-*/
+
     void ufnkcja2(const std::unique_ptr<SmartTree> &tree, string * str)
     {
-        if ((tree==nullptr))
-            *str += " [none]";
 
+        if ((tree==nullptr))
+        {
+            *str += " [none]";
+        }
         else {
             ostringstream ss;
             ss << tree->value;
@@ -75,72 +80,84 @@ namespace datastructures
             }
         }
 
+
+
+
     std::string DumpTree(const std::unique_ptr<SmartTree> &tree)
     {
-        string str = "",str2="";
+        string str = "",str2;
         //str = ufnkcja(tree, str);
         ufnkcja2(tree, &str);
         //cout<<str;
         for(int i=1; i<str.length(); i++)
             str2+=str[i];
-        return str2;
+
+            return str2;
     }
-    unique_ptr <SmartTree> RestoreTree(const string &tree)
-    {
-        if (tree == "[none]")
-            return nullptr;
-        
-        unsigned long iterator = 1;
-        string value;
-        unsigned long stringsize = tree.length();
-        
-        while (iterator < stringsize){
-            if (tree[iterator]==' '){
-                value=tree.substr(1, iterator);
-                iterator++;
-                break;
-            }
-            iterator++;
+
+
+
+
+
+    std::unique_ptr <SmartTree> RestoreTree(const std::string &tree) {
+
+        /*
+         REGEXY TAKIE TAM
+        regex pattern {R"((\[)(\d+))"};
+        string line {"[789  [465"};
+        smatch matches;
+
+        while (std::regex_search (line,matches, pattern)) {
+            for (auto x: matches) std::cout << x << " ";
+            std::cout << std::endl;
+            line = matches.suffix().str();
         }
-        //left child
-        int bracketscounter = 0;
-        unsigned long leftstart = iterator;
-        std::string leftchild;
-        while (iterator < stringsize){
-            if (tree[iterator]=='['){
-                bracketscounter+=1;
-            }
-            else if (tree[iterator]==']'){
-                bracketscounter-=1;
-            }
-            if (bracketscounter==0){
-                leftchild = tree.substr(leftstart, iterator-leftstart+1);
-                iterator+=2;
-                break;
-            }
-            iterator++;
+         */
+        if (tree=="[none]")
+        {
+            return nullptr ;
         }
-        
-        //right child
-        bracketscounter = 0;
-        unsigned long rightstart = iterator;
-        std::string rightchild;
-        while (iterator < stringsize){
-            if (tree[iterator]=='['){
-                bracketscounter+=1;
+            unique_ptr<SmartTree> parent(new SmartTree);
+            int i = 1;
+            string parent_value="";
+            while (tree[i] != ' ')
+            {
+                parent_value += tree[i];
+                i++;
             }
-            else if (tree[iterator]==']'){
-                bracketscounter-=1;
+            i+=2;
+            //cout<<"ojciec: "<<parent_value<<endl;
+            string left_child="[";
+            int brackets = 1;
+            while (brackets != 0)
+            {
+                left_child += tree[i];
+                if (tree[i]=='[')
+                    brackets++;
+                else if (tree[i]==']')
+                    brackets--;
+                i++;
             }
-            if (bracketscounter==0){
-                rightchild = tree.substr(rightstart, iterator-rightstart+1);
-                break;
+            //cout<<"lewe dziecko: " << left_child<<endl;
+            i+=2;
+            string right_child="[";
+            brackets = 1;
+            while (brackets != 0)
+            {
+                right_child += tree[i];
+                if (tree[i]=='[')
+                    brackets++;
+                else if (tree[i]==']')
+                    brackets--;
+                i++;
             }
-            iterator++;
-        }
-        auto root = CreateLeaf(std::stoi(value));
-        root->left = RestoreTree(leftchild);
-        root->right = RestoreTree(rightchild);
-        return root;
+            parent = CreateLeaf(stoi(parent_value));
+            parent->left = RestoreTree(left_child);
+            parent->right = RestoreTree(right_child);
+            return parent;
     }
+
+
+
 }
+
