@@ -8,6 +8,8 @@
 #include "iostream"
 #include <string>
 #include "memory"
+#include "sstream"
+
 using namespace std;
 using ::std::stringstream;
 
@@ -26,6 +28,12 @@ namespace datastructures
     void PrintTreeInOrder(const std::unique_ptr<SmartTree> &unique_ptr, std::ostream *out);
     std::string DumpTree(const std::unique_ptr<SmartTree> &tree);
     void DumpTreeHelp(const std::unique_ptr<SmartTree> &tree, string *str);
+
+    string ufnkcja(const std::unique_ptr<SmartTree> &tree, string str);
+    void ufnkcja2(const std::unique_ptr<SmartTree> &tree, string * str);
+    std::string DumpTree(const std::unique_ptr<SmartTree> &tree);
+    std::unique_ptr <SmartTree> RestoreTree(const std::string &tree);
+
 
 }
 #endif //JIMP_EXERCISES_SMARTTREE_H

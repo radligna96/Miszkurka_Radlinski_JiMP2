@@ -18,12 +18,14 @@ using ::std::string;
 using ::std::unique_ptr;
 using ::std::map;
 
-struct TinyUrlCodec
-{
-    std::array<char, 6> arr;
-};
 
 namespace tinyurl {
+
+    struct TinyUrlCodec{
+        std::array<char, 6> hash;
+        map<string, string > bitch;
+    };
+
 
     std::unique_ptr<TinyUrlCodec> Init();
     void NextHash(std::array<char, 6> *state);

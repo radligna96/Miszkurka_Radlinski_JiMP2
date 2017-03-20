@@ -24,41 +24,37 @@ namespace tinyurl {
             index = alfa.find(state->at(i));
             state->at(i) = alfa.at(index + 1);
         }
-        std::cout << std::endl << state->begin();
+        //std::cout << std::endl << state->begin();
     }
 
 
 std::unique_ptr<TinyUrlCodec> Init()
 {
-    std::unique_ptr<TinyUrlCodec> pointer = std::make_unique<TinyUrlCodec>();
-    pointer->arr = {'0','0','0','0','0','0'};
-    std::cout<<pointer->arr.begin()<<std::endl;
-    return pointer;
+    std::unique_ptr<TinyUrlCodec> object = std::make_unique<TinyUrlCodec>();
+    object->hash = {'0','0','0','0','0','0'};
+    return object;
 }
 
 std::string Encode(const std::string &url, std::unique_ptr<TinyUrlCodec> *codec)
 {
-    std::cout<<" encode "<<std::endl;
-    std::string gowno = url, jajco;
-    bool flag = false;
-    for (int i = 0; i<gowno.length();i++){
-        if(gowno[i]==':')
-        {
-            flag = true;
-            i+=3;
-        }
-        if(flag)
-        {
-            jajco+=gowno[i];
-        }
-    }
-    jajco+="/";
 
-    std::cout<<codec;
-    std::cout<<std::endl<<jajco<<std::endl;
-    return jajco;
+    string str;
+    for (auto el : codec->get()->hash) {
+        str += el;
+    }
+    codec->get()->bitch.emplace(str, url);
+    NextHash(&codec->get()->hash);
+    return str;
 
 }
+    std::string Decode(const std::unique_ptr<TinyUrlCodec> &codec, const std::string &hash)
+    {
+        string url;
+        auto i = codec->bitch.find(hash);
+        url = i->second;
+        return url;
+    }
+
 }
 /* all url should be encoded uniquely
    unique_ptr<TinyUrlCodec> codec = tinyurl::Init();
