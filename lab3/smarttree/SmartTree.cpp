@@ -2,6 +2,7 @@
 // Created by Ignacy on 3/17/2017.
 //
 
+#include <regex>
 #include "SmartTree.h"
 namespace datastructures
 {
@@ -87,7 +88,7 @@ namespace datastructures
         string str = "",str2;
         //str = ufnkcja(tree, str);
         ufnkcja2(tree, &str);
-        cout<<str;
+        //cout<<str;
         for(int i=1; i<str.length(); i++)
             str2+=str[i];
 
@@ -95,4 +96,68 @@ namespace datastructures
     }
 
 
+
+
+
+    std::unique_ptr <SmartTree> RestoreTree(const std::string &tree) {
+
+        /*
+         REGEXY TAKIE TAM
+        regex pattern {R"((\[)(\d+))"};
+        string line {"[789  [465"};
+        smatch matches;
+
+        while (std::regex_search (line,matches, pattern)) {
+            for (auto x: matches) std::cout << x << " ";
+            std::cout << std::endl;
+            line = matches.suffix().str();
+        }
+         */
+        if (tree=="[none]")
+        {
+            return nullptr ;
+        }
+            unique_ptr<SmartTree> parent(new SmartTree);
+            int i = 1;
+            string parent_value="";
+            while (tree[i] != ' ')
+            {
+                parent_value += tree[i];
+                i++;
+            }
+            i+=2;
+            //cout<<"ojciec: "<<parent_value<<endl;
+            string left_child="[";
+            int brackets = 1;
+            while (brackets != 0)
+            {
+                left_child += tree[i];
+                if (tree[i]=='[')
+                    brackets++;
+                else if (tree[i]==']')
+                    brackets--;
+                i++;
+            }
+            //cout<<"lewe dziecko: " << left_child<<endl;
+            i+=2;
+            string right_child="[";
+            brackets = 1;
+            while (brackets != 0)
+            {
+                right_child += tree[i];
+                if (tree[i]=='[')
+                    brackets++;
+                else if (tree[i]==']')
+                    brackets--;
+                i++;
+            }
+            parent = CreateLeaf(stoi(parent_value));
+            parent->left = RestoreTree(left_child);
+            parent->right = RestoreTree(right_child);
+            return parent;
+    }
+
+
+
 }
+

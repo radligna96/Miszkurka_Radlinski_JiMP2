@@ -17,7 +17,8 @@ int main ()
     root->right = InsertLeftChild(move(root->right), CreateLeaf(897));
     root->right = InsertRightChild(move(root->right), CreateLeaf(761));
     PrintTreeInOrder(root, &ss);
-    //str = DumpTree(root);
-    cout <<root->value;
+    str = "[99 [100 [1234 [none] [none]] [4321 [none] [none]]] [88 [897 [none] [none]] [761 [none] [none]]]]";
+    //cout <<endl<<"moj str "<<str;
+    RestoreTree(str);
     return 0;
 }

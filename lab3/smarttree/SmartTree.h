@@ -27,7 +27,6 @@ namespace datastructures
     unique_ptr <SmartTree> InsertRightChild(std::unique_ptr<SmartTree> tree, std::unique_ptr<SmartTree> right_subtree);
     void PrintTreeInOrder(const std::unique_ptr<SmartTree> &unique_ptr, std::ostream *out);
     std::string DumpTree(const std::unique_ptr<SmartTree> &tree);
-    void DumpTreeHelp(const std::unique_ptr<SmartTree> &tree, string *str);
 
     string ufnkcja(const std::unique_ptr<SmartTree> &tree, string str);
     void ufnkcja2(const std::unique_ptr<SmartTree> &tree, string * str);
