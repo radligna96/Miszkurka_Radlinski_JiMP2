@@ -3,14 +3,11 @@
 //
 
 
-#ifndef PALINDROM_PALINDROME_H
+#ifndef PALINDROME_PALINDROME_H
 
-#define PALINDROM_PALINDROME_H
+#define PALINDROME_PALINDROME_H
 
 #include <string>
-
-#include <stdio.h>
-
 #include <iostream>
 
 using namespace std;

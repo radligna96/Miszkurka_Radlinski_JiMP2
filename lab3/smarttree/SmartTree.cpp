@@ -35,7 +35,7 @@ namespace datastructures
         *out << unique_ptr->value<<", ";
         PrintTreeInOrder(unique_ptr->right, out);
     }
-
+/*
     string ufnkcja(const std::unique_ptr<SmartTree> &tree, string str)
     {
         ostringstream ss;
@@ -57,7 +57,7 @@ namespace datastructures
 
 
     }
-
+*/
     void ufnkcja2(const std::unique_ptr<SmartTree> &tree, string * str)
     {
 
@@ -81,8 +81,6 @@ namespace datastructures
         }
 
 
-
-
     std::string DumpTree(const std::unique_ptr<SmartTree> &tree)
     {
         string str = "",str2;
@@ -94,10 +92,6 @@ namespace datastructures
 
             return str2;
     }
-
-
-
-
 
     std::unique_ptr <SmartTree> RestoreTree(const std::string &tree) {
 
@@ -156,8 +150,5 @@ namespace datastructures
             parent->right = RestoreTree(right_child);
             return parent;
     }
-
-
-
 }
 
