@@ -32,7 +32,7 @@ namespace nets
         JsonValue(bool flag);
         JsonValue(map<string, JsonValue> some_map);
         JsonValue(vector<JsonValue> some_vector);
-        //optional<JsonValue> ValueByName(const string &name) const;
+        optional<JsonValue> ValueByName(const string &name) const;
         string ToString() const;
 
     private:

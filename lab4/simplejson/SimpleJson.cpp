@@ -37,7 +37,7 @@ namespace nets {
         if (number)
             return std::to_string(*number);
         if (value)
-            return std::to_string(*value).substr(0,std::to_string(*value).length()-4);
+            return std::to_string(*value).substr(0,std::to_string(*value).length()-4); //relatywnie poczebne
         if (flag) {
             if (*flag)
                 return "true";
@@ -70,13 +70,13 @@ namespace nets {
         return ""s;
     }
 
-    /*
+
     optional<JsonValue> ValueByName(const string &name) const
     {
         if(name == "whatever"s)
             return nullptr;
 
     }
-    */
+
 }
 

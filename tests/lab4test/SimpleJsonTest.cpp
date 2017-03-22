@@ -18,6 +18,7 @@ using ::std::map;
 using ::utility::FromString;
 using ::std::regex;
 using ::std::regex_match;
+using ::std::literals::operator""s;
 using namespace ::std::literals;
 
 using TestArgument = JsonValue;
@@ -46,8 +47,8 @@ TEST_F(SimpleJsonTestTests, CreationOfJsonValues) {
   EXPECT_NE(string::npos, obj_str.find("\"account_balance\": -107.89"));
   EXPECT_NE(string::npos, obj_str.find("\"age\": 44"));
   EXPECT_NE(string::npos, obj_str.find("\"name\": \"Maciej\""));
-  //EXPECT_TRUE(regex_match(obj_str, regex{R"(\{"\w+": ["\w\.-]+, "\w+": ["\w\.-]+, "\w+": ["\w\.-]+\})"}));
-  //EXPECT_FALSE(regex_match(obj_str, regex{"-107.89(0)+"}));
+  EXPECT_TRUE(regex_match(obj_str, regex{R"(\{"\w+": ["\w\.-]+, "\w+": ["\w\.-]+, "\w+": ["\w\.-]+\})"}));
+  EXPECT_FALSE(regex_match(obj_str, regex{"-107.89(0)+"}));
 }
 
 TEST_P(SimpleJsonTestTests, CreationOfTrickyJsonStringValues) {
@@ -67,13 +68,13 @@ TEST_P(SimpleJsonTestTests, CreationOfTrickyJsonObjectsWithTrickyNameValues) {
 }
 
 std::vector<TestParam> trickyJsonStringTestData
-    {{JsonValue {R"("abc")"}, R"("\"abc\"")"},
-     {JsonValue {R"(efg"hjk")"}, R"(efg\"hjk\")"},
-     {JsonValue {R"(\"abc\")"}, R"(\"abc\")"},
-     {JsonValue {R"(\\"ghh\")"}, R"(\\\"ghh\")"},
-     {JsonValue {R"(\\\"klmnopr\\\")"}, R"(\\\"klmnopr\\\")"},
-     {JsonValue {R"(\\\\\\\"http:\\\\\\\"klmno)"}, R"("\"abc\"")"},
-     {JsonValue {R"(\\\\\\"http:\\\\\\"klmno)"}, R"("\"abc\"")"}
+    {{JsonValue {R"("abc")"s}, R"("\"abc\"")"},
+     {JsonValue {R"(efg"hjk")"s}, R"(efg\"hjk\")"},
+     {JsonValue {R"(\"abc\")"s}, R"(\"abc\")"},
+     {JsonValue {R"(\\"ghh\")"s}, R"(\\\"ghh\")"},
+     {JsonValue {R"(\\\"klmnopr\\\")"s}, R"(\\\"klmnopr\\\")"},
+     {JsonValue {R"(\\\\\\\"http:\\\\\\\"klmno)"s}, R"("\"abc\"")"},
+     {JsonValue {R"(\\\\\\"http:\\\\\\"klmno)"s}, R"("\"abc\"")"}
     };
 
 INSTANTIATE_TEST_CASE_P(SimpleJsonTestTestsFixture,
