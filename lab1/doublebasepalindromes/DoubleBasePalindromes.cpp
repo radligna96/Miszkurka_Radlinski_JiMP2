@@ -5,7 +5,17 @@
 #include "DoubleBasePalindromes.h"
 
 bool czy_palindrom(string slowo);
+string my_itoa(int liczba)
+{
+    string tab ="";
 
+    while(liczba) //dopóki liczba będzie różna od zera
+    {
+        tab +=(char)((liczba%2)+48);
+        liczba/=2;
+    }
+    return tab;
+}
 uint64_t DoubleBasePalindromes(int max_vaule_exculsive)
 
 {
@@ -17,9 +27,9 @@ uint64_t DoubleBasePalindromes(int max_vaule_exculsive)
         sprintf((char *) s_tmp.c_str(), "%d", i);
         string slowo = s_tmp.c_str();
         string dwojkowe;
-        char tab[1000];
+        string tab;
         if (czy_palindrom(slowo)) {
-            itoa(i, tab, 2);
+            tab = my_itoa(i);
             dwojkowe = tab;
             if (czy_palindrom(dwojkowe)) {
                 suma += i;
@@ -43,8 +53,11 @@ bool czy_palindrom(string slowo)
         else
             break;
     }
-    if (licznik == dlugosc/2)
+    return dlugosc / 2 == licznik; // LOOOOOL
+    /*
+     if (dlugosc / 2 == licznik)
         return true;
     else
         return false;
+     */
 }

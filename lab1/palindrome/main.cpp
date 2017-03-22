@@ -20,7 +20,7 @@ int main() {
     {
         cout << "Wpisz slowo prosze" << endl;
         getchar();
-        while ((c = getchar())!= 10)
+        while ((c = (char)(getchar())!= 10))
         {
             slowo += c;
         }

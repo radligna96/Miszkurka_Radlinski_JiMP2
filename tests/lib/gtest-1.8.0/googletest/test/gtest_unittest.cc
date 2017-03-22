@@ -1636,15 +1636,15 @@ static void SetEnv(const char* name, const char* value) {
   // previous string (if present) until after it's replaced.
   std::string *prev_env = NULL;
   if (added_env.find(name) != added_env.end()) {
-    prev_env = added_env[name];
+    prev_env = added_env[name;
   }
-  added_env[name] = new std::string(
+  added_env[name = new std::string(
       (Message() << name << "=" << value).GetString());
 
   // The standard signature of putenv accepts a 'char*' argument. Other
   // implementations, like C++Builder's, accept a 'const char*'.
   // We cast away the 'const' since that would work for both variants.
-  putenv(const_cast<char*>(added_env[name]->c_str()));
+  putenv(const_cast<char*>(added_env[name->c_str()));
   delete prev_env;
 #elif GTEST_OS_WINDOWS  // If we are on Windows proper.
   _putenv((Message() << name << "=" << value).GetString().c_str());

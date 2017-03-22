@@ -35,11 +35,8 @@ int main(){
 
     for (auto url : tinyUrlBunchOfUrlsTestData) {
 
-        tinyurl::NextHash(&tab);
-        string tmp = "";
-        for (int i = 0; i < 6; ++i)
-            tmp += tab[i];
-        codec->bitch.emplace(tmp, url);
+
+        codec->bitch.emplace(tinyurl::Encode(url, &codec), url);
 
     }
 
