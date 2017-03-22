@@ -7,7 +7,7 @@
 #include <regex>
 #include <MemLeakTest.h>
 #include <StringUtility.h>
-#include <w32api/d2d1_1helper.h>
+//#include <w32api/d2d1_1helper.h>
 //#include "SimpleJson.h"
 #include "../../lab4/simplejson/SimpleJson.h"
 
