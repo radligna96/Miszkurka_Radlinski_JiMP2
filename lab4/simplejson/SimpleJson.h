@@ -10,6 +10,7 @@
 #include <iostream>
 #include <vector>
 #include <map>
+#include <typeinfo>
 
 using ::std::vector;
 using ::std::map;
@@ -25,23 +26,22 @@ namespace nets
     {
     public:
         JsonValue();
-        JsonValue(int number);
-        JsonValue(double value);
+        JsonValue(int number_);
+        JsonValue(double value_);
         JsonValue(string name);
         JsonValue(bool flag);
         JsonValue(map<string, JsonValue> some_map);
         JsonValue(vector<JsonValue> some_vector);
-
-        //optional<JsonValue> ValueByName(const string &name) const;
+        optional<JsonValue> ValueByName(const string &name) const;
         string ToString() const;
-    private:
-        int number;
-        double value;
-        string name;
-        bool flag;
-        map<string, JsonValue> some_map;
-        vector<JsonValue> some_vector;
 
+    private:
+        optional<int> number;
+        optional<double> value;
+        optional<string> name;
+        optional<bool> flag;
+        optional<map<string, JsonValue>> some_map;
+        optional<vector<JsonValue>> some_vector;
 
     };
 
