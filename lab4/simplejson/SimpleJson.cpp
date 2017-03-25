@@ -33,9 +33,15 @@ namespace nets {
         some_map = std::experimental::make_optional(some_map_);
     }
 
+    JsonValue::~JsonValue() {}
+
     string JsonValue::ToString() const {
-        if (number)
-            return std::to_string(*number);
+        if (number) {
+            if (*number == 0)
+                return ""s;
+            else
+                return std::to_string(*number);
+        }
         if (value)
             return std::to_string(*value).substr(0,std::to_string(*value).length()-4); //relatywnie poczebne
         if (flag) {
@@ -45,15 +51,15 @@ namespace nets {
                 return "false";
         }
         if (name)
-            return "\"" + *name + "\"";
+            return "" + *name + ""; //bez cudzyswlowiow
 
         if (some_vector) {
-            string gowno = "["s;
+            string gowno = "{"s;
             for (auto i : *some_vector) {
-                gowno += (i.ToString() +", ");
+                gowno += (i.ToString() +": ");
             }
             gowno = gowno.substr(0,gowno.length()-2);
-            gowno += "]"s;
+            gowno += "}"s;
             return gowno;
         }
         if (some_map) {
@@ -71,10 +77,10 @@ namespace nets {
     }
 
 
-    optional<JsonValue> ValueByName(const string &name) const
+    optional<JsonValue> JsonValue::ValueByName(const string &name) const
     {
         if(name == "whatever"s)
-            return nullptr;
+            return {};
 
     }
 

@@ -32,6 +32,7 @@ namespace nets
         JsonValue(bool flag);
         JsonValue(map<string, JsonValue> some_map);
         JsonValue(vector<JsonValue> some_vector);
+        ~JsonValue();
         optional<JsonValue> ValueByName(const string &name) const;
         string ToString() const;
 
@@ -44,8 +45,6 @@ namespace nets
         optional<vector<JsonValue>> some_vector;
 
     };
-
-
 }
 
 #endif //JIMP_EXERCISES_SIMPLEJSON_H
