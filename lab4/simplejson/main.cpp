@@ -17,10 +17,13 @@ int main() {
     JsonValue obj{obj_v};
     // {"age": 13, "name": "Test name", "values": [56.6, 45, "abc"]} kolejność argumentów nie ma znaczenia w przypadku obiektu
     JsonValue obj1{map<string, JsonValue> {{"name",            {"Maciej"s}},
-                                           {"age",             {0}},
-                                           {"account_balance", {js}}}};
+                                           {"age",             {44}},
+                                           {"account_balance", {-107.89}}}};
     string okienko = obj1.ToString();
     cout << okienko << endl;//<<obj1.ToString()<<endl;
-    int o = (int) (okienko.find("\"account_balance\": -107.89"));
+    int o = (int) (okienko.find("\"name\": Maciej"));
     cout << o;
-}
+
+
+    cout<<endl<<endl<<obj1.ValueByName("age")->ToString();
+    }

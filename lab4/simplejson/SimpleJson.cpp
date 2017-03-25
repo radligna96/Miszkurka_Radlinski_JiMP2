@@ -54,12 +54,12 @@ namespace nets {
             return "" + *name + ""; //bez cudzyswlowiow
 
         if (some_vector) {
-            string gowno = "{"s;
+            string gowno = "["s;
             for (auto i : *some_vector) {
-                gowno += (i.ToString() +": ");
+                gowno += (i.ToString() +", ");
             }
             gowno = gowno.substr(0,gowno.length()-2);
-            gowno += "}"s;
+            gowno += "]"s;
             return gowno;
         }
         if (some_map) {
@@ -77,12 +77,14 @@ namespace nets {
     }
 
 
-    optional<JsonValue> JsonValue::ValueByName(const string &name) const
-    {
-        if(name == "whatever"s)
-            return {};
-
+    optional<JsonValue> JsonValue::ValueByName(const string &namee) const {
+        if (some_map) {
+            for (auto v : *some_map) {
+                if (v.first == namee)
+                    return std::experimental::make_optional(v.second);
+            }
+        }
+        return {};
     }
-
 }
 
