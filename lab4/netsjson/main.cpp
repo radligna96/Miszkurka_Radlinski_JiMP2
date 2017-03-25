@@ -6,15 +6,16 @@
 #include "SimpleJson.h"
 
 
+using  nets::JsonValue;
 
 int main() {
 
-    vector<JsonValue> js {JsonValue{56.6},JsonValue{45},JsonValue{"abc"s}};
-    map<string, JsonValue> obj_v {{"values",JsonValue{js}},{"name",JsonValue{"Test name"}},{"age",JsonValue{13}}};
-    JsonValue obj {obj_v};
-    // {"age": 13, "name": "Test name", "values": [56.6, 45, "abc"]} kolejność argumentów nie ma znaczenia w przypadku obiektu
-
-    cout << obj.ToString() << endl;
+    //vector<JsonValue> js {JsonValue{56.6},JsonValue{45},JsonValue{"abc"s}};
+    //map<string, JsonValue> obj_v {{"values",JsonValue{js}},{"name",JsonValue{"Test name"s}},{"age",JsonValue{13}}};
+    //JsonValue obj {obj_v};
+    JsonValue obj1 ("gg");
+    cout << obj1.ToString() << endl;
+    /*
     cout << "name: " << obj.ValueByName("name")->ToString() << endl;
     cout << "values: " << obj.ValueByName("values")->ToString() << endl;
     cout << "age: " << obj.ValueByName("age")->ToString() << endl;
@@ -24,4 +25,5 @@ int main() {
     } else {
         cout << "is absent" << endl;
     }
+    */
 }

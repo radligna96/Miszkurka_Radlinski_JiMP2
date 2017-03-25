@@ -16,7 +16,6 @@ using ::std::map;
 using ::std::cout;
 using ::std::endl;
 using ::std::string;
-using ::nets::JsonValue;
 using ::std::literals::operator""s;
 using ::std::experimental::optional;
 
@@ -24,7 +23,7 @@ namespace nets
 {
     class JsonValue
     {
-
+    public:
         JsonValue();
         JsonValue(int number);
         JsonValue(double value);
@@ -32,9 +31,16 @@ namespace nets
         JsonValue(bool flag);
         JsonValue(map<string, JsonValue> some_map);
         JsonValue(vector<JsonValue> some_vector);
-        optional<JsonValue> ValueByName(const string &name) const;
-        string ToString() const;
 
+        //optional<JsonValue> ValueByName(const string &name) const;
+        string ToString() const;
+    private:
+        int number;
+        double value;
+        string name;
+        bool flag;
+        map<string, JsonValue> some_map;
+        vector<JsonValue> some_vector;
 
 
     };
