@@ -10,7 +10,8 @@
 #include <gtest/gtest.h>
 #include <MemLeakTest.h>
 #include <StringUtility.h>
-#include <SimpleJson.h>
+//#include <SimpleJson.h>
+#include "../../lab4/simplejson/SimpleJson.h"
 
 using ::nets::JsonValue;
 using ::std::vector;
