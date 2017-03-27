@@ -7,7 +7,10 @@
 #include <memory>
 #include <MemLeakTest.h>
 #include <StringUtility.h>
-#include <Square.h>
+#include <cmath>
+//#include <Square.h>
+#include "../../lab4/geometry/Point.h"
+#include "../../lab4/geometry/Square.h"
 
 using ::geometry::Point;
 using ::geometry::Square;
