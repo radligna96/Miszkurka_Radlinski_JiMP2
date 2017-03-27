@@ -51,7 +51,23 @@ namespace nets {
                 return "false";
         }
         if (name)
-            return "" + *name + ""; //bez cudzyswlowiow
+        {
+            string tmp = *name;
+            unsigned long len = (*name).length();
+            unsigned long index=0;
+            for(int i=0;i<len;i++)
+            {
+                if(((*name)[i]=='\"' )|| ((*name)[i]== '\\'))
+                {
+
+                    tmp.insert(i+index, "\\");
+                    index++;
+                }
+
+            }
+
+            return "\"" + tmp + "\""s;
+        }
 
         if (some_vector) {
             string gowno = "["s;
@@ -63,14 +79,27 @@ namespace nets {
             return gowno;
         }
         if (some_map) {
-            string gowno = "["s;
+            string map_str = "{"s;
             for (auto i : *some_map) {
-                gowno += "\"" + i.first + "\": ";
-                gowno += (i.second.ToString() +", ");
+
+                string tmp = i.first;
+                unsigned long len = tmp.length();
+                unsigned long index=0;
+                for(int j=0;j<len;j++)
+                {
+
+                    if(((i.first)[j]=='\"' )|| ((i.first)[j]== '\\'))
+                    {
+                        tmp.insert(j+index, "\\");
+                        index++;
+                    }
+                }
+                map_str += "\"" + tmp + "\": ";
+                map_str += (i.second.ToString() +", ");
             }
-            gowno = gowno.substr(0,gowno.length()-2);
-            gowno += "]"s;
-            return gowno;
+            map_str = map_str.substr(0,map_str.length()-2);
+            map_str += "}"s;
+            return map_str;
 
         }
         return ""s;

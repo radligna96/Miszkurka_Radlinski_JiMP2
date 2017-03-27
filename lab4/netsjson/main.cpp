@@ -24,6 +24,22 @@ int main() {
     int o = (int) (okienko.find("\"name\": Maciej"));
     cout << o;
 
+    map<string, JsonValue> obj2{{R"(\"abc\")"s, JsonValue{10}}};
+    JsonValue obj_value{obj2};
 
+    JsonValue objs{"\\\"abc\\\""s};
+    cout<<endl<<"uhuhuhuu "<<obj_value.ToString()<<endl;
     cout<<endl<<endl<<obj1.ValueByName("age")->ToString();
     }
+
+/*
+ Expected: expected
+      Which is: "{\"\\\"abc\\\"\": 10}"
+To be equal to: obj_value.ToString()
+      Which is: "{\"\"abc\"\": 10}"
+
+      Expected: expected
+      Which is: "{\"\\\\\\\\\\\\\\\\\\\\\\\\\\\"http:\\\\\\\\\\\\\\\\\\\\\\\\\\\"klmno\": 10}"
+To be equal to: obj_value.ToString()
+      Which is: "{\"\\\\\\\\\\\\\"http:\\\\\\\\\\\\\"klmno\": 10}"
+ */
