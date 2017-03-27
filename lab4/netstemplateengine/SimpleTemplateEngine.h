@@ -5,7 +5,6 @@
 #ifndef JIMP_EXERCISES_SIMPLETEMPLATEENGINE_H
 #define JIMP_EXERCISES_SIMPLETEMPLATEENGINE_H
 
-
 #include <string>
 #include <unordered_map>
 #include <iostream>

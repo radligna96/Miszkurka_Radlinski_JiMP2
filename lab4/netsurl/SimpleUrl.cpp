@@ -9,7 +9,6 @@ namespace nets {
     SimpleUrl::SimpleUrl(string url) {
         this->url=url;
     }
-
     SimpleUrl::~SimpleUrl() {}
 
     std::string SimpleUrl::Scheme() const

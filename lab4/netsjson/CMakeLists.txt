@@ -1,4 +1,3 @@
-
 project(simplejson)
 
 set(HEDEAR_FILES SimpleJson.h)

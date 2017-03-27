@@ -4,6 +4,7 @@
 
 #include "Name.h"
 
+
 Name::Name(string nazwa){
     string wyraz1, wyraz2, wyraz3, wyraz4;
     for (unsigned  long letter_index = 0; letter_index<nazwa.length(); letter_index++)

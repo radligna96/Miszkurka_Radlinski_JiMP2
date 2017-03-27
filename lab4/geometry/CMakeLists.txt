@@ -1,4 +1,3 @@
-
 project(geometry)
 
 set(HEDEAR_FILES Geometry.h)

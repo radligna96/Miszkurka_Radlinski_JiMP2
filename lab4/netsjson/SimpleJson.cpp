@@ -2,6 +2,7 @@
 // Created by Ignacy on 3/22/2017.
 //
 
+
 #include "SimpleJson.h"
 
 namespace nets {
@@ -59,24 +60,20 @@ namespace nets {
             {
                 if(((*name)[i]=='\"' )|| ((*name)[i]== '\\'))
                 {
-
                     tmp.insert(i+index, "\\");
                     index++;
                 }
-
             }
-
             return "\"" + tmp + "\""s;
         }
-
         if (some_vector) {
-            string gowno = "["s;
+            string str_tmp = "["s;
             for (auto i : *some_vector) {
-                gowno += (i.ToString() +", ");
+                 str_tmp += (i.ToString() +", ");
             }
-            gowno = gowno.substr(0,gowno.length()-2);
-            gowno += "]"s;
-            return gowno;
+             str_tmp =  str_tmp.substr(0, str_tmp.length()-2);
+             str_tmp += "]"s;
+            return  str_tmp;
         }
         if (some_map) {
             string map_str = "{"s;

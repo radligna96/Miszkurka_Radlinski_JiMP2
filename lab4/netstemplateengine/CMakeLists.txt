@@ -1,4 +1,3 @@
-
 project(simpletemplateengine)
 
 set(HEDEAR_FILES SimpleTemplateEngine.h)

@@ -1,4 +1,3 @@
-
 project(netsurl)
 
 set(HEDEAR_FILES SimpleUrl.h)

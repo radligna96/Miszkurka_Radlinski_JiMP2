@@ -7,7 +7,6 @@
 
 int main()
 {
-
     string nic = "mailto:jasne@przykro.com //no";
 
     nets::SimpleUrl obj1 {nic};

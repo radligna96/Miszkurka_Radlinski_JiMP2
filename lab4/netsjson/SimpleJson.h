@@ -2,6 +2,7 @@
 // Created by Ignacy on 3/22/2017.
 //
 
+
 #ifndef JIMP_EXERCISES_SIMPLEJSON_H
 #define JIMP_EXERCISES_SIMPLEJSON_H
 

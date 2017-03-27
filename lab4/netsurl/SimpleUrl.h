@@ -20,8 +20,6 @@ using ::std::regex;
 using ::std::smatch;
 
 
-
-
 namespace nets
 {
     class SimpleUrl

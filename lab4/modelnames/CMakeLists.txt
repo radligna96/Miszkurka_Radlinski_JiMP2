@@ -1,4 +1,3 @@
-
 project(name)
 
 set(HEDEAR_FILES Name.h)
