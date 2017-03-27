@@ -47,11 +47,11 @@ TEST_F(SimpleJsonTestTests, CreationOfJsonValues) {
     EXPECT_NE(string::npos, obj_str.find("\"account_balance\": -107.89"));
     EXPECT_NE(string::npos, obj_str.find("\"age\": 44"));
     EXPECT_NE(string::npos, obj_str.find("\"name\": \"Maciej\""));
-//EXPECT_TRUE(regex_match(obj_str, regex{R"(\{"\w+": ["\w\.-]+, "\w+": ["\w\.-]+, "\w+": ["\w\.-]+\})"}));
+EXPECT_TRUE(regex_match(obj_str, regex{R"(\{"\w+": ["\w\.-]+, "\w+": ["\w\.-]+, "\w+": ["\w\.-]+\})"}));
 EXPECT_FALSE(regex_match(obj_str, regex{"-107.89(0)+"}));
 }
 
-TEST_P(SimpleJsonTestTests, GetValueByNameReturnsSubValueInCaseOfObjectOrNullptrOtherwise) {
+TEST_F(SimpleJsonTestTests, GetValueByNameReturnsSubValueInCaseOfObjectOrNullptrOtherwise) { //F dalem f
     JsonValue int_value{17};
     EXPECT_FALSE(int_value.ValueByName("whatever"));
     JsonValue double_value{56.89};
