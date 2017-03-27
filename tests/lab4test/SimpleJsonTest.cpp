@@ -1,3 +1,7 @@
+//
+// Created by mwypych on 20.03.17.
+//
+
 
 #include <string>
 #include <vector>
@@ -7,7 +11,6 @@
 #include <MemLeakTest.h>
 #include <StringUtility.h>
 #include <SimpleJson.h>
-#include "../../lab4/simplejson/SimpleJson.h"
 
 using ::nets::JsonValue;
 using ::std::vector;
@@ -51,7 +54,7 @@ EXPECT_TRUE(regex_match(obj_str, regex{R"(\{"\w+": ["\w\.-]+, "\w+": ["\w\.-]+, 
 EXPECT_FALSE(regex_match(obj_str, regex{"-107.89(0)+"}));
 }
 
-TEST_F(SimpleJsonTestTests, GetValueByNameReturnsSubValueInCaseOfObjectOrNullptrOtherwise) { //F dalem f
+TEST_P(SimpleJsonTestTests, GetValueByNameReturnsSubValueInCaseOfObjectOrNullptrOtherwise) {
     JsonValue int_value{17};
     EXPECT_FALSE(int_value.ValueByName("whatever"));
     JsonValue double_value{56.89};
@@ -75,7 +78,6 @@ TEST_F(SimpleJsonTestTests, GetValueByNameReturnsSubValueInCaseOfObjectOrNullptr
 
 class TrickySimpleJsonTestTests : public ::testing::TestWithParam<TrickyTestParam>, MemLeakTest {
 };
-
 
 TEST_P(TrickySimpleJsonTestTests, CreationOfTrickyJsonStringValues) {
     string str_value;
@@ -104,9 +106,6 @@ std::vector<TrickyTestParam> trickyJsonStringTestData
          {R"(\\\\\\"http:\\\\\\"klmno)"s, R"("\\\\\\\\\\\\\"http:\\\\\\\\\\\\\"klmno")"s}
         };
 
-
 INSTANTIATE_TEST_CASE_P(TrickySimpleJsonTestTestsFixture,
                         TrickySimpleJsonTestTests,
                         ::testing::ValuesIn(trickyJsonStringTestData));
-
-
