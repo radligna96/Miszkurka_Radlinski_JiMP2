@@ -2,6 +2,7 @@
 // Created by radligna on 21.03.17.
 //
 
+
 #ifndef JIMP_EXERCISES_NAME_H
 #define JIMP_EXERCISES_NAME_H
 

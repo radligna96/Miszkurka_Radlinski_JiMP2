@@ -3,6 +3,7 @@
 //
 
 
+
 #include <string>
 #include <vector>
 #include <map>
@@ -97,18 +98,15 @@ TEST_P(TrickySimpleJsonTestTests, CreationOfTrickyJsonObjectsWithTrickyNameValue
 }
 
 std::vector<TrickyTestParam> trickyJsonStringTestData
-    {{R"("abc")"s, R"("\"abc\"")"s},
-     {R"(efg"hjk")"s, R"("efg\"hjk\"")"s},
-     {R"(\"abc\")"s, R"("\\\"abc\\\"")"s},
-     {R"(\\"ghh\")"s, R"("\\\\\"ghh\\\"")"s},
-     {R"(\\\"klmnopr\\\")"s, R"("\\\\\\\"klmnopr\\\\\\\"")"s},
-     {R"(\\\\\\\"http:\\\\\\\"klmno)"s, R"("\\\\\\\\\\\\\\\"http:\\\\\\\\\\\\\\\"klmno")"s},
-     {R"(\\\\\\"http:\\\\\\"klmno)"s, R"("\\\\\\\\\\\\\"http:\\\\\\\\\\\\\"klmno")"s}
-    };
+        {{R"("abc")"s, R"("\"abc\"")"s},
+         {R"(efg"hjk")"s, R"("efg\"hjk\"")"s},
+         {R"(\"abc\")"s, R"("\\\"abc\\\"")"s},
+         {R"(\\"ghh\")"s, R"("\\\\\"ghh\\\"")"s},
+         {R"(\\\"klmnopr\\\")"s, R"("\\\\\\\"klmnopr\\\\\\\"")"s},
+         {R"(\\\\\\\"http:\\\\\\\"klmno)"s, R"("\\\\\\\\\\\\\\\"http:\\\\\\\\\\\\\\\"klmno")"s},
+         {R"(\\\\\\"http:\\\\\\"klmno)"s, R"("\\\\\\\\\\\\\"http:\\\\\\\\\\\\\"klmno")"s}
+        };
 
 INSTANTIATE_TEST_CASE_P(TrickySimpleJsonTestTestsFixture,
                         TrickySimpleJsonTestTests,
                         ::testing::ValuesIn(trickyJsonStringTestData));
-
-
-
