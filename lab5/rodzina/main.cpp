@@ -9,7 +9,8 @@ int main()
 {
 
     Dziecko dziecko {"gg"};
-    Rodzic ojciec; //omg
+    Rodzic ojciec; //omg wtf
+
 
     return 0;
 }
