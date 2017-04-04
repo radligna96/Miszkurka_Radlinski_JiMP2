@@ -18,7 +18,8 @@ int main()
     */
 
     geometry::Point p2;
-    std::cin << p2;
+   // std::cin << p2;
+    std::cin >> p2;
     p2.ToString(&std::cout);
 
 
