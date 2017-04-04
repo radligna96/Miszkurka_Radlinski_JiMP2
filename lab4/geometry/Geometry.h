@@ -11,6 +11,10 @@
 namespace geometry{
 
     class Point {
+
+    private:
+        //w przeciwienstwie do pythona C++ wymaga jawnej deklaracji składowych pól klasy:
+        double x_, y_;
     public:
         //Konstruktor bezparametrowy
         Point();
@@ -32,27 +36,19 @@ namespace geometry{
 
         //metody seterów pozwalające zmienić stan obiektu
         //po jego zainicjalizowaniu
-        void SetX(double x);
-        void SetY(double y);
-    private:
-        //w przeciwienstwie do pythona C++ wymaga jawnej deklaracji składowych pól klasy:
-        double x_, y_;
-    };
+        void SetX(double x_) {
+                Point::x_ = x_;
+        }
 
-    class Square{
-    public:
-        Square(Point A, Point B, Point C, Point D);
-        ~Square(){};
-        double Circumference();
-        double Area();
-    private:
-        //int ax, ay, bx, by, cx, cy, dy, dx;
-        Point A_;
-        Point B_;
-        Point C_;
-        Point D_;
-    };
+        void SetY(double y_) {
+                Point::y_ = y_;
+        }
 
+    };
+    std::istream& operator>>(std::istream &is, Point& point);
+    std::istream& operator<<(std::istream &is, Point& point);
 }
+
+
 
 #endif //JIMP_EXERCISES_GEOMETRY_H

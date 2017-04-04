@@ -7,6 +7,7 @@
 #include <cmath>
 
 using namespace std;
+using ::std::istream;
 using ::std::ostream;
 using ::std::endl;
 using ::std::pow;
@@ -35,6 +36,7 @@ namespace geometry {
         return y_;
     }
 
+
     double Point::Distance(const Point &other) const{
         return sqrt(pow(GetX()-other.GetX(),2)+pow(GetY()-other.GetY(),2));
     }
@@ -43,35 +45,43 @@ namespace geometry {
         (*out) << "(" << GetX() << ";" << GetY() << ")";
     }
 
-    Square::Square(Point A, Point B, Point C, Point D) {
-        A_=A;
-        B_=B;
-        C_=C;
-        D_=D;
+
+//Helper functions:
+    void CheckNextChar(char c, istream &is) {
+        int next_char = is.peek();
+        if (next_char != c) {
+            throw runtime_error("invalid character");
+        }
+        is.ignore();
     }
 
-    double Square::Circumference() {
-        //to jest zle
-        if (A_.Point::GetX() ==B_.Point::GetX() || A_.Point::GetY()==B_.Point::GetY())
-        {
-            return B_.Point::Distance(A_)*4;
-        }
-        else if(A_.Point::GetX() == C_.Point::GetX() || A_.Point::GetY()==C_.Point::GetY())
-        {
-            return C_.Point::Distance(A_)*4;
-        }
-        else
-        {
-            return 0.0;
-        }
+    double ReadNumber(istream &is) {
+        double d;
+        is >> d;
+        return d;
     }
 
-    double  Square::Area() {
-        double side = Square::Circumference()/4;
-        if (side == 0) return 0.0;
-        else {
-            return side*side;
-        }
+
+// Właściwa definicja, obydwa argumenty funkcji nie
+//są zadeklarowane jako const, bo obydwa są modyfikowane
+//wewnątrz funkcji (STL nie używa naszej konwencji z przekazywaniem
+//przez wskaźnik)
+    istream& operator>>(istream & input, Point& p){
+        CheckNextChar('(', input);
+        p.SetX(ReadNumber(input));
+        CheckNextChar(',', input);
+        p.SetY(ReadNumber(input));
+        CheckNextChar(')', input);
+        return input;      // Umożliwia cin >> a >> b >> c;
+    }
+
+    istream& operator<<(istream & input, Point& p){
+        CheckNextChar('(', input);
+        p.SetX(ReadNumber(input));
+        CheckNextChar(',', input);
+        p.SetY(ReadNumber(input));
+        CheckNextChar(')', input);
+        return input;      // Umożliwia cin >> a >> b >> c;
     }
 }
 
