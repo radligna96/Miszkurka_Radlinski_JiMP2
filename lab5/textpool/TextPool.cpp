@@ -4,18 +4,11 @@
 
 #include "TextPool.h"
 
-namespace pool{
+using pool::TextPool;
 
-    TextPool::TextPool(const std::initializer_list<const string> &some_list) {
-
-        for(auto element : some_list)
-        {
-            perla.emplace(element);
-        }
-    }
 
     //konstruktor przenoszący:
-    TextPool::TextPool(TextPool &&text) : perla{nullptr} {
+    TextPool::TextPool(TextPool &&text) {
         std::swap(perla,text.perla);
         //Bardzo popularna szutczka
         //wiemy, ze za chwilę xxx zostanie zniszczony
@@ -25,14 +18,31 @@ namespace pool{
     }
 
     //operator przenoszący:
-    TextPool &TextPool::operator=(TextPool &&text)  {
+    TextPool & TextPool::operator=(TextPool &&text)  {
         //jeśli ktoś wpadł na pomsył x = move(x);
         if (this == &text) {
             return text;
         }
         perla.clear();
         std::swap(perla,text.perla);
+        return *this;
     }
+
+    TextPool::~TextPool()
+    {
+        perla.clear();
+    };
+
+    TextPool::TextPool(){};
+
+    TextPool::TextPool(const std::initializer_list<const string> &some_list) {
+
+        for(auto element : some_list)
+        {
+            perla.emplace(element);
+        }
+    }
+
 
     size_t TextPool::StoredStringCount() const {
 
@@ -46,7 +56,4 @@ namespace pool{
         {
             perla.emplace(str);
         }
-
     }
-
-}
