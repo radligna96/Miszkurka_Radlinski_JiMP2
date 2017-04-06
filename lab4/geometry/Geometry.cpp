@@ -15,7 +15,7 @@ using ::std::sqrt;
 namespace geometry {
 
     Point::Point():x_(0),y_(0){
-        cout << "Konstruktor bezparametrowy" << endl;
+        cout << "Konstruktor bezparametrowy " << endl;
     }
 
     Point::Point(double x, double y){
