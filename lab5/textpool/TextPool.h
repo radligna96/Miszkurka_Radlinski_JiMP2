@@ -20,13 +20,13 @@ namespace pool {
         std::set<string_view> perla;
 
     public:
-        //2. konstruktor przenoszący
+        //konstruktor przenoszący
         TextPool(TextPool &&xxx);
 
-        //4. operator przypisania przenoszący
+        //operator przypisania przenoszący
         TextPool & operator=(TextPool &&xxx);
 
-        //5. Destruktor
+        //Destruktor
         ~TextPool();
 
         //domyślny konstruktor
