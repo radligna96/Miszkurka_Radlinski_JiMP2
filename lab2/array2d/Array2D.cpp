@@ -4,7 +4,7 @@
 
 #include "Array2D.h"
 
-void DeleteArray2D(int **array, int n_rows, int n_columns)
+void DeleteArray2D(int **array, int n_rows, int n_columns)  //O
 {
     
     for (int i=0; i<n_rows; i++)
