@@ -33,11 +33,11 @@ namespace pool {
         TextPool(const std::initializer_list<const string> &some_list);
         //Rule of five://
         //1. konstruktor kopiujący
-        //XXX(const XXX &xxx);
+        //XXX(const Matrix &xxx);
         //2. konstruktor przenoszący
         TextPool(TextPool &&text);
         //3. operator przypisania kopiujący
-        //XXX &operator=(const XXX &xxx);
+        //XXX &operator=(const Matrix &xxx);
         //4. operator przypisania przenoszący
         TextPool &operator=(TextPool &&text);
         //5. Destruktor
