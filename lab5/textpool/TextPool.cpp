@@ -6,47 +6,46 @@
 
 using pool::TextPool;
 
-
 TextPool::TextPool(){};
 
 TextPool::TextPool(TextPool &&text) {
-    swap(perla,text.perla);
+    swap( sv_set ,text.sv_set);
 }
 
 TextPool & TextPool::operator=(TextPool &&text)  {
     if (this == &text) {
         return text;
     }
-    perla.clear();
-    swap(perla,text.perla);
+    sv_set.clear();
+    swap(sv_set,text.sv_set);
     return *this;
 }
 
 TextPool::~TextPool() {
-    perla.clear();
+    sv_set.clear();
 };
 
 TextPool::TextPool(const std::initializer_list<string_view> &some_list) {
 
     for (auto i : some_list)
-        perla.emplace(i);
+        sv_set.emplace(i);
 }
 
 size_t TextPool::StoredStringCount() const {
 
-    unsigned long size = perla.size();
+    unsigned long size = sv_set.size();
     return size;
 }
 
 std::experimental::string_view TextPool::Intern(const std::string &str) {
 
-    for (auto i : perla) {
+    for (auto i : sv_set) {
         if (i == str){
             return i;
         }
     }
 
-    perla.emplace(str);
+    sv_set.emplace(str);
     return Intern(str);
 
 }
