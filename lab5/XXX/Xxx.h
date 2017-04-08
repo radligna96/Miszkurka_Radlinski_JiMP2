@@ -14,8 +14,8 @@ public:
     //domyślny konstruktor
     XXX();
     //konstruktory parametryczne
-    //XXX(int param);
-    //XXX(const std::string name);
+    //Matrix(int param);
+    //Matrix(const std::string name);
 
     //Rule of five://
     //1. konstruktor kopiujący
