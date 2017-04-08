@@ -33,9 +33,7 @@ TextPool::TextPool(const std::initializer_list<string_view> &some_list) {
 }
 
 size_t TextPool::StoredStringCount() const {
-
-    unsigned long size = perla.size();
-    return size;
+    return perla.size();
 }
 
 std::experimental::string_view TextPool::Intern(const std::string &str) {
