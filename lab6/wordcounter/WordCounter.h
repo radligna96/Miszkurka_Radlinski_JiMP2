@@ -31,18 +31,15 @@ namespace datastructures {
     class WordCounter {
     public:
         WordCounter();
-
         WordCounter(initializer_list<Word> words);
-
         ~WordCounter() {};
 
         int operator[](string wanted);
-        //WordCounter &operator<<();
         int DistinctWords();
         int TotalWords();
         set<Word> Words();
 
-//private:
+    private:
         list<pair<Word, Counts>> mylist;
         int distinct;
         int total;

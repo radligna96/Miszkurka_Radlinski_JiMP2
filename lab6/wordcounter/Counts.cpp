@@ -10,8 +10,8 @@ Counts & Counts::operator++() {
     return *this;
 }
 
-Counts::Counts(int oo) {
-    count = oo;
+Counts::Counts(int number) {
+    count = number;
 }
 
 bool Counts::operator<(Counts ignas) const {

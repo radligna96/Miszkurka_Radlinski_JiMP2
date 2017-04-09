@@ -27,7 +27,7 @@ namespace datastructures {
         bool operator>(Word ignas) const ;
 
         bool operator==(Word ignas) const ;
-    //private:
+    private:
         string searched_word;
     };
 

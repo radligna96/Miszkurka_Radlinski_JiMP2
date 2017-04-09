@@ -25,7 +25,7 @@ namespace datastructures {
 
         bool operator==(Counts ignas) const ;
 
-   // private:
+   private:
         int count;
     };
 
