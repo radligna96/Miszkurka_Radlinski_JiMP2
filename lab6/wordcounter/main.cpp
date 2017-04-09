@@ -11,6 +11,7 @@ int main()
     WordCounter counter {Word("a"), Word("p"), Word("a"), Word("a"), Word("hi"), Word("voltage")};
     set<Word> secik;
     secik = counter.Words();
+    cout<<"o";
 
     return 0;
 }
