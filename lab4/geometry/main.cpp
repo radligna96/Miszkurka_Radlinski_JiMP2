@@ -3,7 +3,7 @@
 //
 
 
-#include "Punkt2D.h"
+#include "Punkt3D.h"
 
 int main()
 {
