@@ -1,5 +1,5 @@
 
-project(xxx)
+project(XXX)
 
 set(HEDEAR_FILES Xxx.h)
 set(SOURCE_FILES Xxx.cpp)
