@@ -2,7 +2,7 @@
 // Created by miszk on 3/25/2017.
 //
 
-#include "Geometry.h"
+#include "Punkt2D.h"
 #include <ostream>
 #include <cmath>
 
