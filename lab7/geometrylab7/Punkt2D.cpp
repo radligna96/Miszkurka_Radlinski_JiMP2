@@ -3,29 +3,22 @@
 //
 
 #include "Punkt2D.h"
-#include <ostream>
-#include <cmath>
-
-using namespace std;
-using ::std::istream;
-using ::std::ostream;
-using ::std::endl;
-using ::std::pow;
-using ::std::sqrt;
 
 namespace geometry {
 
     Point::Point():x_(0),y_(0){
-        cout << "Konstruktor bezparametrowy " << endl;
+        cout << "Konstruktor bezparametrowy 2D" << endl;
     }
 
     Point::Point(double x, double y){
-        cout << "Konstruktor parametrowy" << endl;
+        cout << "Konstruktor parametrowy 2D" << endl;
         x_ = x;
         y_ = y;
     }
 
-    Point::~Point(){};
+    Point::~Point(){
+        cout<<"destruktor 2D"<<endl;
+    };
 
     double Point::GetX() const
     {
@@ -43,6 +36,14 @@ namespace geometry {
 
     void Point::ToString(ostream *out) const{
         (*out) << "(" << GetX() << ";" << GetY() << ")";
+    }
+
+    void Point::SetX(double x_) {
+        Point::x_ = x_;
+    }
+
+    void Point::SetY(double y_) {
+        Point::y_ = y_;
     }
 
 

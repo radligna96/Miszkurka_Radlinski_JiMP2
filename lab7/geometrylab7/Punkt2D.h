@@ -7,6 +7,15 @@
 
 #include <string>
 #include <iostream>
+#include <cmath>
+
+using std::istream;
+using std::ostream;
+using std::endl;
+using std::pow;
+using std::sqrt;
+using std::cout;
+using std::runtime_error;
 
 namespace geometry{
 
@@ -21,11 +30,11 @@ namespace geometry{
         //Konstruktor parametrowy
         Point(double x, double y);
         //Destruktor wykonywany przed zwolnieniem pamięci
-        ~Point();
+        virtual ~Point();
 
         //Metody nie modyfikujące stanu obiektu (const na końcu metody)
         //nie mogą zmodyfikować tego obiektu.
-        void ToString(std::ostream *out) const;
+        void ToString(ostream *out) const;
         double Distance(const Point &other) const;
 
 
@@ -36,17 +45,13 @@ namespace geometry{
 
         //metody seterów pozwalające zmienić stan obiektu
         //po jego zainicjalizowaniu
-        void SetX(double x_) {
-                Point::x_ = x_;
-        }
+        void SetX(double x_);
 
-        void SetY(double y_) {
-                Point::y_ = y_;
-        }
+        void SetY(double y_);
 
     };
-    std::istream& operator>>(std::istream &is, Point& point);
-    std::istream& operator<<(std::istream &is, Point& point);
+    istream& operator>>(istream &is, Point& point);
+    istream& operator<<(istream &is, Point& point);
 }
 
 

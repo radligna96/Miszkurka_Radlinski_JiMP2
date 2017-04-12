@@ -6,22 +6,25 @@
 #include "Punkt3D.h"
 using geometry::Point3D;
 
+#include <sstream>
+
 int main()
 {
-    /*geometrylab7::Point p1{5, 0};
-    geometrylab7::Point p2{0, 0};
-    geometrylab7::Point p3{5, 5};
-    geometrylab7::Point p4{0, 5};
-
-    geometrylab7::Square my_square{p1, p2, p3, p4};
-    std::cout<<"circumference: "<<my_square.Square::Circumference()<<std::endl;
-    std::cout<<"area: "<<my_square.Square::Area()<<std::endl;
-    */
 
     geometry::Point p2;
-   // std::cin << p2;
-    std::cin >> p2;
-    p2.ToString(&std::cout);
+    //std::cin >> p2;
+    geometry::Point3D p1(4,3,0);
+    cout<<p2.Distance(p1)<<endl;
+
+    p2.ToString(&cout);
+    cout<<endl;
+
+    std::stringstream p;
+    std::string o = "(5,4)";
+    p << o;
+    p<<p2;
+    p2.ToString(&cout);
+    cout<<endl;
 
 
     return 0;
