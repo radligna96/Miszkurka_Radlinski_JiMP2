@@ -4,6 +4,7 @@
 
 
 #include "Punkt3D.h"
+using geometry::Point3D;
 
 int main()
 {

@@ -2,8 +2,8 @@
 // Created by miszk on 3/25/2017.
 //
 
-#ifndef JIMP_EXERCISES_POINT_H
-#define JIMP_EXERCISES_POINT_H
+#ifndef JIMP_EXERCISES_GEOMETRY_H
+#define JIMP_EXERCISES_GEOMETRY_H
 
 #include <string>
 #include <iostream>
@@ -11,6 +11,10 @@
 namespace geometry{
 
     class Point {
+
+    private:
+        //w przeciwienstwie do pythona C++ wymaga jawnej deklaracji składowych pól klasy:
+        double x_, y_;
     public:
         //Konstruktor bezparametrowy
         Point();
@@ -32,14 +36,19 @@ namespace geometry{
 
         //metody seterów pozwalające zmienić stan obiektu
         //po jego zainicjalizowaniu
-        void SetX(double x);
-        void SetY(double y);
-    private:
-        //w przeciwienstwie do pythona C++ wymaga jawnej deklaracji składowych pól klasy:
-        double x_, y_;
-    };
+        void SetX(double x_) {
+                Point::x_ = x_;
+        }
 
+        void SetY(double y_) {
+                Point::y_ = y_;
+        }
+
+    };
+    std::istream& operator>>(std::istream &is, Point& point);
+    std::istream& operator<<(std::istream &is, Point& point);
 }
 
 
-#endif //JIMP_EXERCISES_POINT_H
+
+#endif //JIMP_EXERCISES_GEOMETRY_H

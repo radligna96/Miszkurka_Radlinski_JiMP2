@@ -17,7 +17,7 @@ using std::experimental::string_view;
 namespace pool {
     class TextPool {
     private:
-        std::set<string_view> perla;
+        std::set<string_view> sv_set;
 
     public:
         //konstruktor przenoszący
