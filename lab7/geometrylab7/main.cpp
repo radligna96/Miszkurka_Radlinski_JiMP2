@@ -11,7 +11,7 @@ using geometry::Point3D;
 int main()
 {
 
-    geometry::Point p2;
+    geometry::Point2D p2;
     //std::cin >> p2;
     geometry::Point3D p1(4,3,0);
     cout<<p2.Distance(p1)<<endl;

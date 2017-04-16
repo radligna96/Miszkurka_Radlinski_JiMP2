@@ -19,23 +19,23 @@ using std::runtime_error;
 
 namespace geometry{
 
-    class Point {
+    class Point2D {
 
     private:
         //w przeciwienstwie do pythona C++ wymaga jawnej deklaracji składowych pól klasy:
         double x_, y_;
     public:
         //Konstruktor bezparametrowy
-        Point();
+        Point2D();
         //Konstruktor parametrowy
-        Point(double x, double y);
+        Point2D(double x, double y);
         //Destruktor wykonywany przed zwolnieniem pamięci
-        virtual ~Point();
+        virtual ~Point2D();
 
         //Metody nie modyfikujące stanu obiektu (const na końcu metody)
         //nie mogą zmodyfikować tego obiektu.
         void ToString(ostream *out) const;
-        double Distance(const Point &other) const;
+        double Distance(const Point2D &other) const;
 
 
         //metody akcesorów są publiczne i tylko w przy ich pomocy
@@ -50,8 +50,8 @@ namespace geometry{
         void SetY(double y_);
 
     };
-    istream& operator>>(istream &is, Point& point);
-    istream& operator<<(istream &is, Point& point);
+    istream& operator>>(istream &is, Point2D& point);
+    istream& operator<<(istream &is, Point2D& point);
 }
 
 

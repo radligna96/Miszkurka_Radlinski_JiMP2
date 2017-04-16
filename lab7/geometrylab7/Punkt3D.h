@@ -7,7 +7,7 @@
 
 #include "Punkt2D.h"
 #include <cmath>
-using geometry::Point;
+using geometry::Point2D;
 using std::cout;
 using std::cin;
 using std::endl;
@@ -16,7 +16,7 @@ using std::endl;
 
 namespace geometry {
 
-    class Point3D : public Point {
+    class Point3D : public Point2D {
     public:
 
         Point3D(double x, double y, double _z);

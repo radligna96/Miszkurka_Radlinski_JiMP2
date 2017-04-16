@@ -6,44 +6,44 @@
 
 namespace geometry {
 
-    Point::Point():x_(0),y_(0){
+    Point2D::Point2D():x_(0),y_(0){
         cout << "Konstruktor bezparametrowy 2D" << endl;
     }
 
-    Point::Point(double x, double y){
+    Point2D::Point2D(double x, double y){
         cout << "Konstruktor parametrowy 2D" << endl;
         x_ = x;
         y_ = y;
     }
 
-    Point::~Point(){
+    Point2D::~Point2D(){
         cout<<"destruktor 2D"<<endl;
     };
 
-    double Point::GetX() const
+    double Point2D::GetX() const
     {
         return x_;
     }
-    double Point::GetY() const
+    double Point2D::GetY() const
     {
         return y_;
     }
 
 
-    double Point::Distance(const Point &other) const{
+    double Point2D::Distance(const Point2D &other) const{
         return sqrt(pow(GetX()-other.GetX(),2)+pow(GetY()-other.GetY(),2));
     }
 
-    void Point::ToString(ostream *out) const{
+    void Point2D::ToString(ostream *out) const{
         (*out) << "(" << GetX() << ";" << GetY() << ")";
     }
 
-    void Point::SetX(double x_) {
-        Point::x_ = x_;
+    void Point2D::SetX(double x_) {
+        Point2D::x_ = x_;
     }
 
-    void Point::SetY(double y_) {
-        Point::y_ = y_;
+    void Point2D::SetY(double y_) {
+        Point2D::y_ = y_;
     }
 
 
@@ -67,7 +67,7 @@ namespace geometry {
 //są zadeklarowane jako const, bo obydwa są modyfikowane
 //wewnątrz funkcji (STL nie używa naszej konwencji z przekazywaniem
 //przez wskaźnik)
-    istream& operator>>(istream & input, Point& p){
+    istream& operator>>(istream & input, Point2D& p){
         CheckNextChar('(', input);
         p.SetX(ReadNumber(input));
         CheckNextChar(',', input);
@@ -76,7 +76,7 @@ namespace geometry {
         return input;      // Umożliwia cin >> a >> b >> c;
     }
 
-    istream& operator<<(istream & input, Point& p){
+    istream& operator<<(istream & input, Point2D& p){
         CheckNextChar('(', input);
         p.SetX(ReadNumber(input));
         CheckNextChar(',', input);

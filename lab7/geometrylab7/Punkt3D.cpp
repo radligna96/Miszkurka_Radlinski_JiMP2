@@ -5,12 +5,12 @@
 #include "Punkt3D.h"
 using geometry::Point3D;
 
-Point3D::Point3D(double x, double y, double _z) : Point(x, y) {
+Point3D::Point3D(double x, double y, double _z) : Point2D(x, y) {
     cout<<"konstruktor parametrowy 3D"<<endl;
     z_ = _z;
 }
 
-Point3D::Point3D() : Point(){
+Point3D::Point3D() : Point2D(){
     cout<<"konstruktor bezparametrowy 3D"<<endl;
     z_ = 0;
 }
