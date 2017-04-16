@@ -10,7 +10,7 @@ int main()
 {
     //Konstrukcja obiektu za pomocą domyślnego konstruktora
     //nieciekawe
-    XXX old_xxx {};
+    XXX old_xxx {};//o
 
     //Konstrukcja obiektu na podstawie już zaincjalizowanego
     XXX new_xxx {old_xxx};
