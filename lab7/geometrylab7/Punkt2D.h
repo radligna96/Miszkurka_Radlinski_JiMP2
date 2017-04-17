@@ -51,7 +51,7 @@ namespace geometry{
 
     };
     istream& operator>>(istream &is, Point2D& point);
-    istream& operator<<(istream &is, Point2D& point);
+    ostream& operator<<(ostream &is, Point2D& point);
 }
 
 

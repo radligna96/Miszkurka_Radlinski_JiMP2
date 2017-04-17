@@ -76,12 +76,10 @@ namespace geometry {
         return input;      // Umożliwia cin >> a >> b >> c;
     }
 
-    istream& operator<<(istream & input, Point2D& p){
-        CheckNextChar('(', input);
-        p.SetX(ReadNumber(input));
-        CheckNextChar(',', input);
-        p.SetY(ReadNumber(input));
-        CheckNextChar(')', input);
+    ostream& operator<<(ostream & input, Point2D& p){
+        input << "("<<p.GetX();
+        input << ";";
+        input << p.GetY()<<")";
         return input;      // Umożliwia cin >> a >> b >> c;
     }
 }
