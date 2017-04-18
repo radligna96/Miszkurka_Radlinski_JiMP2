@@ -80,7 +80,7 @@ namespace geometry {
         input << "("<<p.GetX();
         input << ";";
         input << p.GetY()<<")";
-        return input;      // Umożliwia cin >> a >> b >> c;
+        return input;
     }
 }
 
