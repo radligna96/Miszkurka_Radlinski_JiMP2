@@ -38,3 +38,5 @@ istream& operator>>(istream & input, StudyYear& y){
     y.SetYear(ReadNumber(input));
     return input;
 }
+
+

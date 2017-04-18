@@ -12,5 +12,5 @@ Kolo::Kolo(double a, double b, double c)
 }
 
 double Kolo::pole() {
-    return (3.14*(this->r));
+    return (3.14*(this->r)*(this->r));
 }

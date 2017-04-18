@@ -7,19 +7,22 @@
 
 #include "Kolo.h"
 #include <iostream>
+
 using namespace std;
 
 
 class Kula : Kolo
 {
     double z;
-    //double pole();
+
 public:
     Kula(){};
-    Kula(double x_, double y_, double z_, double r_):Kolo(x_, y_, r_)
+    Kula(double x_, double y_, double z_, double r_):Kolo (x_, y_, r_)
     {
         z = z_;
     };
+    double pole();
+    double przekroj();
 };
 
 
