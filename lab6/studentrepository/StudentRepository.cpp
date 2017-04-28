@@ -57,6 +57,10 @@ namespace academia {
         return this->study_year == year_nr;
     }
 
+    StudyYear::operator int() const {
+        return study_year;
+    }
+
     int ReadNumber(istream &is) {
         int d;
         is >> d;
@@ -105,10 +109,44 @@ namespace academia {
     }
 
     void Student::ChangeLastName(string newLastName) {
-        this->lastName = newLastName;
+        //cout<<"nopewniezesiewywoluje";
+        lastName = newLastName;
     }
 
     bool Student::operator==(Student another_student) const {
         return this->id == another_student.id;
+    }
+
+    StudentRepository::StudentRepository() {
+        studentCount = 0;
+    }
+
+    int StudentRepository::StudentCount() {
+        return studentCount;
+    }
+
+    StudentRepository::StudentRepository(std::initializer_list<Student> list) {
+        studentCount = 0;
+        for(auto iter : list) {
+            repository.emplace_back(iter);
+            studentCount ++;
+        }
+    }
+
+    Student StudentRepository::operator[](string id) {
+        for (auto iter : repository)
+        {
+            if (id == iter.id)
+                return  iter;
+        }
+    }
+
+    bool StudentRepository::operator==(StudentRepository another_repository) const{
+        for(auto iter : repository) {
+            if(!(another_repository[iter.id] == iter)){
+                return false;
+            }
+        }
+        return true;
     }
 }

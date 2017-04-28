@@ -8,11 +8,13 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
+#include <vector>
 
 using std::string;
 using std::istream;
 using std::cout;
 using std::endl;
+using std::vector;
 
 namespace academia {
 
@@ -41,9 +43,9 @@ namespace academia {
         bool operator<(StudyYear another_study_year) const;
 
         bool operator>(StudyYear another_study_year) const;
-    };
 
-    bool operator==(int uu, StudyYear study_year);
+        operator int() const;
+    };
 
     class Student {
     public:
@@ -67,6 +69,23 @@ namespace academia {
         bool operator==(Student another_student) const;
     };
 
+    class StudentRepository{
+    public:
+        StudentRepository();
+        StudentRepository(std::initializer_list<Student> list);
+        ~StudentRepository(){};
+
+        vector <Student> repository ;
+        int StudentCount();
+        int studentCount;
+
+        Student operator[](string id);
+
+        bool operator==(StudentRepository another_repository) const;
+
+    };
+
+    bool operator==(int uu, StudyYear study_year);
 
     istream &operator>>(istream &input, StudyYear &y);
 
