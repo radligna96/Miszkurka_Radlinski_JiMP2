@@ -34,7 +34,27 @@ namespace academia {
     }
 
     StudyYear::StudyYear() {
-        this->study_year = 0;
+        this->study_year = 1;
+    }
+
+    bool StudyYear::operator==(StudyYear another_study_year) const {
+        return this->study_year == another_study_year.study_year;
+    }
+
+    bool operator==(int uu, StudyYear nana){
+        return uu == nana.study_year;
+    }
+
+    bool StudyYear::operator>(StudyYear another_study_year) const {
+        return this->study_year > another_study_year.study_year;
+    }
+
+    bool StudyYear::operator<(StudyYear another_study_year) const {
+        return this->study_year < another_study_year.study_year;
+    }
+
+    bool StudyYear::operator==(int year_nr) const {
+        return this->study_year == year_nr;
     }
 
     int ReadNumber(istream &is) {
@@ -53,7 +73,7 @@ namespace academia {
     }
 
     Student::~Student() {
-            cout<<"destruktor Studenta";
+            //cout<<"destruktor Studenta";
     }
 
     string Student::Id() {
@@ -86,5 +106,9 @@ namespace academia {
 
     void Student::ChangeLastName(string newLastName) {
         this->lastName = newLastName;
+    }
+
+    bool Student::operator==(Student another_student) const {
+        return this->id == another_student.id;
     }
 }

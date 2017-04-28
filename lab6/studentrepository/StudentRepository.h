@@ -28,12 +28,22 @@ namespace academia {
 
         void SetYear(int y);
 
-        StudyYear &operator++();
+        StudyYear &operator++(); // & znaczy ze operujesz na tym samym obiekcie xd
 
         StudyYear &operator--();
 
         int study_year;
+
+        bool operator==(StudyYear another_study_year) const;
+
+        bool operator==(int year_nr) const;
+
+        bool operator<(StudyYear another_study_year) const;
+
+        bool operator>(StudyYear another_study_year) const;
     };
+
+    bool operator==(int uu, StudyYear study_year);
 
     class Student {
     public:
@@ -54,6 +64,7 @@ namespace academia {
         string Id();
 
         void ChangeLastName(string newLastName);
+        bool operator==(Student another_student) const;
     };
 
 
