@@ -109,7 +109,6 @@ namespace academia {
     }
 
     void Student::ChangeLastName(string newLastName) {
-        //cout<<"nopewniezesiewywoluje";
         lastName = newLastName;
     }
 
@@ -133,12 +132,15 @@ namespace academia {
         }
     }
 
-    Student StudentRepository::operator[](string id) {
-        for (auto iter : repository)
+    Student &StudentRepository::operator[](string id) {
+        for (auto &iter : repository)
         {
             if (id == iter.id)
+            {
                 return  iter;
+            }
         }
+        return *repository.begin();
     }
 
     bool StudentRepository::operator==(StudentRepository another_repository) const{

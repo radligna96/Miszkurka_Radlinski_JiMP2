@@ -79,7 +79,7 @@ namespace academia {
         int StudentCount();
         int studentCount;
 
-        Student operator[](string id);
+        Student &operator[](string id);
 
         bool operator==(StudentRepository another_repository) const;
 

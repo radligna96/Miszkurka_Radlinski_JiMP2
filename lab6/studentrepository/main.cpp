@@ -25,6 +25,7 @@ int main()
             {{"2030", "Michał", "Dzieeeedziiic", "architektura", 5}, {"2031", "Katarzyna", "Bach", "informatyka", 3},
              {"2035", "Orson", "Sabach", "górnictwo", 2}};
     cout<<endl<<repository["2030"].lastName<<endl;
+    cout<<&(repository["2030"])<<endl;
     repository["2030"].ChangeLastName("dziemich");
     cout<<endl<<repository["2030"].lastName<<endl;
     return 0;
