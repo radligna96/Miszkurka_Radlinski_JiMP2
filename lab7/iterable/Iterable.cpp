@@ -33,7 +33,15 @@ namespace utility {
     pair<int, string> Zipper::Dereference() const {
         return (std::make_pair(*current_int_position_, *current_str_position_));
     }
-    
+
+    vector<pair<string, int>>::const_iterator Zipper::begin() {
+        return (this->zipped.begin());
+    }
+
+    vector<pair<string, int>>::const_iterator Zipper::end() {
+        return this->zipped.end();
+    }
+
 
     Enumerate::Enumerate(vector<string> vs) {
         int iter = 1;

@@ -53,6 +53,7 @@ namespace utility {
         vector<string>::const_iterator starting_str_position_;
         vector<int>::const_iterator starting_int_position_;
         pair<int, string> Dereference() const;
+
         IterableIterator &Next();
         bool NotEquals(const std::unique_ptr<IterableIterator> &other) const;
 
@@ -66,7 +67,10 @@ namespace utility {
         pair<int, string> Dereference() const;
         IterableIterator &Next();
         bool NotEquals(const std::unique_ptr<IterableIterator> &other) const;
-        
+
+        vector<pair<string,int>>::const_iterator begin();
+        vector<pair<string, int>>::const_iterator end();
+
     };
 
     class Product : public Iterable{
