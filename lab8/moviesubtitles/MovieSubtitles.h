@@ -10,7 +10,9 @@
 #include <memory>
 #include <sstream>
 #include <regex>
+#include <stdexcept>
 
+using std::invalid_argument;
 using std::cout;
 using std::string;
 using std::endl;
@@ -38,6 +40,33 @@ namespace moviesubs {
     class MicroDvdSubtitles : public MovieSubtitles {
     public:
         void ShiftAllSubtitlesBy(int delay, int fps, stringstream *in, stringstream *out);
+    };
+
+    class NegativeFrameAfterShift{
+
+    };
+
+    class SubtitleEndBeforeStart{
+    public:
+        int line_number;
+        string line;
+        SubtitleEndBeforeStart(int _line_nr, string line_);
+
+        int LineAt()const;
+        string what() const;
+    };
+
+    class InvalidSubtitleLineFormat{
+
+    };
+
+    class MissingTimeSpecification {
+
+
+    };
+
+    class OutOfOrderFrames {
+
 
     };
 
