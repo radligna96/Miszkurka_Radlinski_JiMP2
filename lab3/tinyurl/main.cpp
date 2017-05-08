@@ -8,7 +8,7 @@
 int main(){
 
 
-    std::string code = "000000"; //o
+    std::string code = "000000"; //oo
     std::array<char, 6> tab;
 
     for (int i = 0; i < 6; ++i)

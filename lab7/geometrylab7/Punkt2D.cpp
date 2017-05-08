@@ -3,31 +3,21 @@
 //
 
 #include "Punkt2D.h"
-#include <cmath>
-
-
-using std::istream;
-using std::ostream;
-using std::endl;
-using std::pow;
-using std::sqrt;
-using std::cout;
-using std::runtime_error;
 
 namespace geometry {
 
     Point2D::Point2D():x_(0),y_(0){
-        cout << "Konstruktor bezparametrowy Point2D" << endl;
+        cout << "Konstruktor bezparametrowy 2D" << endl;
     }
 
     Point2D::Point2D(double x, double y){
-        cout << "Konstruktor parametrowy Point3D" << endl;
+        cout << "Konstruktor parametrowy 2D" << endl;
         x_ = x;
         y_ = y;
     }
 
     Point2D::~Point2D(){
-        cout << "destruktor Point2D" << endl;
+        cout<<"destruktor 2D"<<endl;
     };
 
     double Point2D::GetX() const
@@ -45,7 +35,15 @@ namespace geometry {
     }
 
     void Point2D::ToString(ostream *out) const{
-        (*out) << "(" << GetX() << ";" << GetY() << ")" << endl;
+        (*out) << "(" << GetX() << ";" << GetY() << ")";
+    }
+
+    void Point2D::SetX(double x_) {
+        Point2D::x_ = x_;
+    }
+
+    void Point2D::SetY(double y_) {
+        Point2D::y_ = y_;
     }
 
 
@@ -78,13 +76,11 @@ namespace geometry {
         return input;      // Umożliwia cin >> a >> b >> c;
     }
 
-    istream& operator<<(istream & input, Point2D& p){
-        CheckNextChar('(', input);
-        p.SetX(ReadNumber(input));
-        CheckNextChar(',', input);
-        p.SetY(ReadNumber(input));
-        CheckNextChar(')', input);
-        return input;      // Umożliwia cin >> a >> b >> c;
+    ostream& operator<<(ostream & input, Point2D& p){
+        input << "("<<p.GetX();
+        input << ";";
+        input << p.GetY()<<")";
+        return input;
     }
 }
 

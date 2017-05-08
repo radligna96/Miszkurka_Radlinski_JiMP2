@@ -7,6 +7,15 @@
 
 #include <string>
 #include <iostream>
+#include <cmath>
+
+using std::istream;
+using std::ostream;
+using std::endl;
+using std::pow;
+using std::sqrt;
+using std::cout;
+using std::runtime_error;
 
 namespace geometry{
 
@@ -25,7 +34,7 @@ namespace geometry{
 
         //Metody nie modyfikujące stanu obiektu (const na końcu metody)
         //nie mogą zmodyfikować tego obiektu.
-        void ToString(std::ostream *out) const;
+        void ToString(ostream *out) const;
         double Distance(const Point2D &other) const;
 
 
@@ -36,18 +45,13 @@ namespace geometry{
 
         //metody seterów pozwalające zmienić stan obiektu
         //po jego zainicjalizowaniu
-        void SetX(double x_) {
-                Point2D::x_ = x_;
-        }
+        void SetX(double x_);
 
-        void SetY(double y_) {
-                Point2D::y_ = y_;
-        }
+        void SetY(double y_);
 
     };
-
-    std::istream& operator>>(std::istream &is, Point2D& point);
-    std::istream& operator<<(std::istream &is, Point2D& point);
+    istream& operator>>(istream &is, Point2D& point);
+    ostream& operator<<(ostream &is, Point2D& point);
 }
 
 

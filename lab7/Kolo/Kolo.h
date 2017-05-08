@@ -7,8 +7,7 @@
 
 
 
-class Kolo
-{
+class Kolo {
 protected:
     double x, y, r;
 public:

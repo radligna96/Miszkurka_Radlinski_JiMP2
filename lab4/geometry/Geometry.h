@@ -10,23 +10,19 @@
 
 namespace geometry{
 
-    class Point2D {
-
-    private:
-        //w przeciwienstwie do pythona C++ wymaga jawnej deklaracji składowych pól klasy:
-        double x_, y_;
+    class Point {
     public:
         //Konstruktor bezparametrowy
-        Point2D();
+        Point();
         //Konstruktor parametrowy
-        Point2D(double x, double y);
+        Point(double x, double y);
         //Destruktor wykonywany przed zwolnieniem pamięci
-        ~Point2D();
+        ~Point();
 
         //Metody nie modyfikujące stanu obiektu (const na końcu metody)
         //nie mogą zmodyfikować tego obiektu.
         void ToString(std::ostream *out) const;
-        double Distance(const Point2D &other) const;
+        double Distance(const Point &other) const;
 
 
         //metody akcesorów są publiczne i tylko w przy ich pomocy
@@ -36,19 +32,27 @@ namespace geometry{
 
         //metody seterów pozwalające zmienić stan obiektu
         //po jego zainicjalizowaniu
-        void SetX(double x_) {
-                Point2D::x_ = x_;
-        }
-
-        void SetY(double y_) {
-                Point2D::y_ = y_;
-        }
-
+        void SetX(double x);
+        void SetY(double y);
+    private:
+        //w przeciwienstwie do pythona C++ wymaga jawnej deklaracji składowych pól klasy:
+        double x_, y_;
     };
-    std::istream& operator>>(std::istream &is, Point2D& point);
-    std::istream& operator<<(std::istream &is, Point2D& point);
+
+    class Square{
+    public:
+        Square(Point A, Point B, Point C, Point D);
+        ~Square(){};
+        double Circumference();
+        double Area();
+    private:
+        //int ax, ay, bx, by, cx, cy, dy, dx;
+        Point A_;
+        Point B_;
+        Point C_;
+        Point D_;
+    };
+
 }
-
-
 
 #endif //JIMP_EXERCISES_GEOMETRY_H
