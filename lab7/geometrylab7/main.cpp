@@ -8,20 +8,20 @@ using geometry::Point3D;
 
 int main()
 {
-    /*geometrylab7::Point p1{5, 0};
-    geometrylab7::Point p2{0, 0};
-    geometrylab7::Point p3{5, 5};
-    geometrylab7::Point p4{0, 5};
+    Point2D p1;
+    p1.ToString(&cout);
 
-    geometrylab7::Square my_square{p1, p2, p3, p4};
-    std::cout<<"circumference: "<<my_square.Square::Circumference()<<std::endl;
-    std::cout<<"area: "<<my_square.Square::Area()<<std::endl;
-    */
+    Point2D p2(1,4);
+    p2.ToString(&cout);
 
-    geometry::Point p2;
-   // std::cin << p2;
-    std::cin >> p2;
-    p2.ToString(&std::cout);
+    //cin >> p2;
+    //p2.ToString(&cout);
+
+    Point3D p3;
+    p3.ToString(&cout);
+
+    Point3D p4(3,4,5);
+    p4.ToString(&cout);
 
 
     return 0;

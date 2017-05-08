@@ -10,23 +10,23 @@
 
 namespace geometry{
 
-    class Point {
+    class Point2D {
 
     private:
         //w przeciwienstwie do pythona C++ wymaga jawnej deklaracji składowych pól klasy:
         double x_, y_;
     public:
         //Konstruktor bezparametrowy
-        Point();
+        Point2D();
         //Konstruktor parametrowy
-        Point(double x, double y);
+        Point2D(double x, double y);
         //Destruktor wykonywany przed zwolnieniem pamięci
-        ~Point();
+        ~Point2D();
 
         //Metody nie modyfikujące stanu obiektu (const na końcu metody)
         //nie mogą zmodyfikować tego obiektu.
         void ToString(std::ostream *out) const;
-        double Distance(const Point &other) const;
+        double Distance(const Point2D &other) const;
 
 
         //metody akcesorów są publiczne i tylko w przy ich pomocy
@@ -37,16 +37,16 @@ namespace geometry{
         //metody seterów pozwalające zmienić stan obiektu
         //po jego zainicjalizowaniu
         void SetX(double x_) {
-                Point::x_ = x_;
+                Point2D::x_ = x_;
         }
 
         void SetY(double y_) {
-                Point::y_ = y_;
+                Point2D::y_ = y_;
         }
 
     };
-    std::istream& operator>>(std::istream &is, Point& point);
-    std::istream& operator<<(std::istream &is, Point& point);
+    std::istream& operator>>(std::istream &is, Point2D& point);
+    std::istream& operator<<(std::istream &is, Point2D& point);
 }
 
 

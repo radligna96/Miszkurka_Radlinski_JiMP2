@@ -15,33 +15,33 @@ using ::std::sqrt;
 
 namespace geometry {
 
-    Point::Point():x_(0),y_(0){
+    Point2D::Point2D():x_(0),y_(0){
         cout << "Konstruktor bezparametrowy " << endl;
     }
 
-    Point::Point(double x, double y){
+    Point2D::Point2D(double x, double y){
         cout << "Konstruktor parametrowy" << endl;
         x_ = x;
         y_ = y;
     }
 
-    Point::~Point(){};
+    Point2D::~Point2D(){};
 
-    double Point::GetX() const
+    double Point2D::GetX() const
     {
         return x_;
     }
-    double Point::GetY() const
+    double Point2D::GetY() const
     {
         return y_;
     }
 
 
-    double Point::Distance(const Point &other) const{
+    double Point2D::Distance(const Point2D &other) const{
         return sqrt(pow(GetX()-other.GetX(),2)+pow(GetY()-other.GetY(),2));
     }
 
-    void Point::ToString(ostream *out) const{
+    void Point2D::ToString(ostream *out) const{
         (*out) << "(" << GetX() << ";" << GetY() << ")";
     }
 
@@ -66,7 +66,7 @@ namespace geometry {
 //są zadeklarowane jako const, bo obydwa są modyfikowane
 //wewnątrz funkcji (STL nie używa naszej konwencji z przekazywaniem
 //przez wskaźnik)
-    istream& operator>>(istream & input, Point& p){
+    istream& operator>>(istream & input, Point2D& p){
         CheckNextChar('(', input);
         p.SetX(ReadNumber(input));
         CheckNextChar(',', input);
@@ -75,7 +75,7 @@ namespace geometry {
         return input;      // Umożliwia cin >> a >> b >> c;
     }
 
-    istream& operator<<(istream & input, Point& p){
+    istream& operator<<(istream & input, Point2D& p){
         CheckNextChar('(', input);
         p.SetX(ReadNumber(input));
         CheckNextChar(',', input);

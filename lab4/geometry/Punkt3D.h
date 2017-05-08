@@ -6,12 +6,12 @@
 #define JIMP_EXERCISES_PUNKT3D_H
 
 #include "Punkt2D.h"
-using geometry::Point;
+using geometry::Point2D;
 using geometry::Point3D;
 
 namespace geometry {
 
-    class Point3D : public Point {
+    class Point3D : public Point2D {
     public:
 
         Point3D::Point3D(double x, doubley, double _z);
