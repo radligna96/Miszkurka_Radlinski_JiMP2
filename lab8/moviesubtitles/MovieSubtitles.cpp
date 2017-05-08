@@ -107,6 +107,7 @@ void moviesubs::SubRipSubtitles::ShiftAllSubtitlesBy(int delay, int fps, strings
             *out << in_string << '\n';
             }
         }
+    //*out << '\n';
 }
 
 void moviesubs::MicroDvdSubtitles::ShiftAllSubtitlesBy(int delay, int fps, stringstream *in, stringstream *out) {
