@@ -2,3 +2,4 @@ project(lab9)
 
 add_subdirectory_if_exists(academiaserializer)
 add_subdirectory_if_exists(juwenalia_ignac)
+add_subdirectory_if_exists(juwenalia_aga)
