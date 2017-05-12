@@ -5,44 +5,63 @@
 #ifndef JIMP_EXERCISES_PROWIANT_H
 #define JIMP_EXERCISES_PROWIANT_H
 
+#include <iostream>
+#include "string"
+using std::ostream;
+using std::string;
 
 class Prowiant {
 public:
     int gram_alkoholu;
-    int objetosc;  //ml
+    string nazwa;
 };
 
 class Wodka : public Prowiant {
 public:
     Wodka() {
-        objetosc = 500;
-        gram_alkoholu = 200;
+        gram_alkoholu = 150;
+        nazwa = "wodka";
     }
+
+    ~Wodka(){};
 };
 
 class Piwko : public Prowiant {
 public:
     Piwko() {
-        objetosc = 500;
         gram_alkoholu = 25;
+        nazwa = "piwko";
     }
+    ~Piwko(){};
+};
+
+class Winko : public Prowiant{
+public:
+    Winko(){
+        gram_alkoholu= 75;
+        nazwa = "winko";
+    }
+    ~Winko(){};
 };
 
 class Sok : public Prowiant {
 public:
     Sok(){
-        objetosc = 300;
         gram_alkoholu = 0;
+        nazwa = "sok";
     }
     ~Sok(){};
 };
 
 class Drozdzowka : public Prowiant{
+public:
     Drozdzowka(){
-        objetosc = 0;
         gram_alkoholu = 0;
+        nazwa = "drozdzowka";
     }
     ~Drozdzowka(){};
 };
+
+
 
 #endif //JIMP_EXERCISES_PROWIANT_H

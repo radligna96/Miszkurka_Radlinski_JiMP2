@@ -27,14 +27,12 @@ class Plecak {
 public:
 //to nie wiem czy poczebne
     Plecak(Prowiant &prowiant_) : prowiant{&prowiant_}{
-        pojemnosc = 20;
-        objetosc_plynow = 0;
+        pojemnosc = 10;
         gram_alkoholu = 0;
     }
 
     Plecak() {
         pojemnosc = 20;
-        objetosc_plynow = 0;
         gram_alkoholu = 0;
     }
 
@@ -43,7 +41,6 @@ public:
     }
     Prowiant *prowiant;
     int pojemnosc;
-    int objetosc_plynow;
     int gram_alkoholu;
    vector<reference_wrapper<Prowiant>> prowianty_;
 
