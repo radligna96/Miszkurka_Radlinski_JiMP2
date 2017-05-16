@@ -1,5 +1,5 @@
 
-project(algo)
+project(algotest)
 
 set(HEDEAR_FILES Algo.h)
 set(SOURCE_FILES Algo.cpp)
