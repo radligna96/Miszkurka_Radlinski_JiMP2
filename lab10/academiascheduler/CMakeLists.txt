@@ -1,0 +1,13 @@
+
+project(academiascheduler)
+
+set(HEDEAR_FILES Academiascheduler.h)
+set(SOURCE_FILES Academiascheduler.cpp)
+
+add_library(libacademiascheduler STATIC ${SOURCE_FILES})
+target_include_directories(libacademiascheduler PUBLIC .)
+
+add_executable(academiascheduler ${SOURCE_FILES} main.cpp)
+
+target_link_libraries(academiascheduler libacademiascheduler)
+
