@@ -10,17 +10,9 @@
 #include <map>
 #include <vector>
 #include <set>
-#include <functional>
 #include <algorithm>
 
-using std::reference_wrapper;
-using std::cout;
-using std::endl;
-
-
 namespace academia {
-
-
 
     class SchedulingItem {
     public:
@@ -40,53 +32,33 @@ namespace academia {
         int Year() const;
     };
 
-
     class Schedule {
     public:
         Schedule () {};
-
         ~Schedule() {};
+        Schedule (std::vector <SchedulingItem> item_v);
 
         Schedule OfTeacher(int teacher_id) const; //wylicza fragment harmonogramu związany z danym nauczycielem akademickim (może się przydać copy_if…)
         Schedule OfRoom(int room_id) const; //sala
         Schedule OfYear(int year) const; // j.w. dla danego roku studiów
-
         std::vector<int> AvailableTimeSlots(int n_time_slots) const; //wylicza wektor jeszcze nie zajętych okien czasowych, gdzie n_time_slots jest maksymalną wartością okna czasowego
         void InsertScheduleItem(const SchedulingItem &item_); //wstawia nowy element planu
-        Schedule (std::vector <SchedulingItem> item_v);
         size_t Size() const; // - zwaraca rozmiar planu
 
-
         std::vector<SchedulingItem> items;
-
         std::vector<int> taken_time_slots;
 
         SchedulingItem operator[](int iter) const;
-
-        //Schedule (SchedulingItem &items) : item{&items}{
-//
-        //}
-
-       // operator SchedulingItem&(){
-       //     return *item;
-       // }
-       // SchedulingItem *item;
-
-        //std::vector<reference_wrapper<SchedulingItem>> items;
     };
 
     class Scheduler {
     public:
         virtual Schedule PrepareNewSchedule(const std::vector<int> &rooms, const std::map<int, std::vector<int>> &teacher_courses_assignment, const std::map<int, std::set<int>> &courses_of_year, int n_time_slots) = 0;
-
-
     };
 
     class GreedyScheduler : public Scheduler{
     public:
         Schedule PrepareNewSchedule(const std::vector<int> &rooms, const std::map<int, std::vector<int>> &teacher_courses_assignment, const std::map<int, std::set<int>> &courses_of_year, int n_time_slots);
-
-
     };
 
 
