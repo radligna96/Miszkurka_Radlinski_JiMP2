@@ -2,8 +2,15 @@
 // Created by miszagni on 23.05.17.
 //
 #include "Dodawanie.h"
+#include "FactoryMethod.h"
+using namespace factoryMethod;
+
 int main()
 {
+
+    int oy = Create<int>();
+
+
 
     int poi = 4;
     int o = 5;
@@ -20,6 +27,7 @@ int main()
 
     shared_ptr <int> ojoj = make_shared<int>(poi);
     cout<<Value(ojoj);
+
 
 
     return 0;
