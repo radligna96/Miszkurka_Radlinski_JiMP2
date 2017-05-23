@@ -44,6 +44,7 @@ namespace academia {
     class Schedule {
     public:
         Schedule () {};
+
         ~Schedule() {};
 
         Schedule OfTeacher(int teacher_id) const; //wylicza fragment harmonogramu związany z danym nauczycielem akademickim (może się przydać copy_if…)
@@ -52,6 +53,7 @@ namespace academia {
 
         std::vector<int> AvailableTimeSlots(int n_time_slots) const; //wylicza wektor jeszcze nie zajętych okien czasowych, gdzie n_time_slots jest maksymalną wartością okna czasowego
         void InsertScheduleItem(const SchedulingItem &item_); //wstawia nowy element planu
+        Schedule (std::vector <SchedulingItem> item_v);
         size_t Size() const; // - zwaraca rozmiar planu
 
 
