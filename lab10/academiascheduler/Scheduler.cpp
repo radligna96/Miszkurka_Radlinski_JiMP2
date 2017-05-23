@@ -11,7 +11,7 @@ academia::Schedule academia::Schedule::OfTeacher(int teacher_id) const {
     Schedule tmp_schedule ;
     tmp_schedule.items.resize(items.size());
 
-    auto it = std::copy_if (items.begin(), items.end(), tmp_schedule.items.begin(), );
+    auto it = std::copy_if (items.begin(), items.end(), tmp_schedule.items.begin(), //jakis bool );
     tmp_schedule.items.resize((unsigned long) std::distance(tmp_schedule.items.begin(), it));  // shrink container to new size
 
     return tmp_schedule;
