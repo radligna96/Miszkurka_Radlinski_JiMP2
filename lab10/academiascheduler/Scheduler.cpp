@@ -85,60 +85,39 @@ academia::Schedule academia::GreedyScheduler::PrepareNewSchedule(const std::vect
 
     std::vector<SchedulingItem> scheduling_items;
     std::vector<std::pair<int, int>> rooms_time_slots_pairs;
-
-    for(auto year_course = courses_of_year.begin(); year_course != courses_of_year.end(); ++year_course)
-    {
-        for(int course : year_course->second)
-        {
-            int course_number = 0;
-            for(auto teacher_course = teacher_courses_assignment.begin(); teacher_course != teacher_courses_assignment.end(); ++teacher_course)
-            {
-                for(int teacher_course_id : teacher_course->second)
-                {
-                    if(teacher_course_id == course)
-                    {
-                        course_number++;
-                    }
-                }
+    int number_of_courses;
+    for (auto year_courses : courses_of_year) {
+        for (auto course : year_courses.second) {
+            number_of_courses = 0;
+            for (auto teacher_courses : teacher_courses_assignment) {
+                number_of_courses += std::count(teacher_courses.second.begin(), teacher_courses.second.end(), course);
             }
-            if(course_number > n_time_slots)
-            {
-                throw NoViableSolutionFound{};
+            if ( number_of_courses > n_time_slots)
+                throw NoViableSolutionFound();
+        }
+    }
+
+    for(auto teacher_course : teacher_courses_assignment) {
+        for(auto course : teacher_course.second) {
+            for(auto year_course : courses_of_year) {
+                if(year_course.second.find(course) != year_course.second.end())
+                    scheduling_items.push_back(SchedulingItem(course, teacher_course.first, 0, 0, year_course.first));
             }
         }
     }
 
-    for(auto teacher_course = teacher_courses_assignment.begin(); teacher_course != teacher_courses_assignment.end(); ++teacher_course)
-    {
-        for(int course : teacher_course->second)
-        {
-            for(auto year_course = courses_of_year.begin(); year_course != courses_of_year.end(); ++year_course)
-            {
-                if(year_course->second.find(course) != year_course->second.end())
-                {
-                    scheduling_items.push_back(SchedulingItem(course, teacher_course->first, 0, 0, year_course->first));
-                }
-            }
-        }
-    }
-
-    for(auto room : rooms)
-    {
-        for(int time_slot = 1; time_slot <= n_time_slots; time_slot++)
-        {
-            rooms_time_slots_pairs.push_back(std::make_pair<int,int>(std::move(room), std::move(time_slot)));
-        }
-    }
-
-    if(scheduling_items.size() > rooms_time_slots_pairs.size())
-    {
+    if(scheduling_items.size() > rooms.size() * n_time_slots)
         throw NoViableSolutionFound{};
-    }
 
-    for(int i=0; i< scheduling_items.size(); i++)
-    {
-        scheduling_items[i].time_slot = rooms_time_slots_pairs[i].second;
-        scheduling_items[i].room_id = rooms_time_slots_pairs[i].first;
+    int i =0;
+    for(auto room : rooms) {
+        for (int time_slot = 1; time_slot <= n_time_slots; time_slot++){
+            if(i<scheduling_items.size()) {
+                scheduling_items[i].time_slot = time_slot;
+                scheduling_items[i].room_id = room;
+            }
+            i++;
+        }
     }
 
     return Schedule{scheduling_items};
