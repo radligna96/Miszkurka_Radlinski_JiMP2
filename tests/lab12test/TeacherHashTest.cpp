@@ -50,6 +50,7 @@ TEST_F(TeacherHashTest, CanCompareSameTeachersAndReturnsTrue) {
   EXPECT_EQ(s1, s2);
 }
 
+
 TEST_F(TeacherHashTest, CanCalculateHashOfTeacherUsingStructWithRedefinedFunctionCallOperator) {
   Teacher s1 = Teacher (TeacherId (1002), "Alozjzy", "Katedra Informatyki");
   const TeacherHash hash {};
@@ -120,5 +121,6 @@ TEST_F(TeacherHashTest, CanInsertTeachersAsKeysIntoUnorderedMap) {
   EXPECT_EQ(100'000'000, m[s2]);
   EXPECT_EQ(98, m[s3]);
 }
+
 
 
