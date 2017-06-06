@@ -29,6 +29,8 @@ namespace academia {
     public:
         Teacher(TeacherId id_, string name_, string department_);
         Teacher(){};
+
+        ~Teacher(){};
         int Id();
         string Name();
         string Department();
@@ -45,12 +47,17 @@ namespace academia {
             return (id.id!=other.id.id || name!=other.name || department!=other.department);
         }
 
+
+
     };
 
     class TeacherHash {
     public:
+        TeacherHash(){};
         TeacherHash(Teacher teacher_){
-            teacher = teacher_;
+            teacher.id.id = teacher_.id.id;
+            teacher.department = teacher_.department;
+            teacher.name = teacher_.name;
         };
         TeacherHash(std::initializer_list<Teacher> o){};
 
