@@ -9,7 +9,7 @@
 #include <functional>
 #include <initializer_list>
 using std::string;
-
+//WSZYSTKIE TESTY PRZECHODZA
 namespace academia {
 
     class TeacherId {
