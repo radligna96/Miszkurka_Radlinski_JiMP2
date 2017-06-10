@@ -12,7 +12,8 @@
 #include <set>
 #include <algorithm>
 
-//WSZYSTKIE TESTY PRZECHODZA
+//WSZYSTKIE TESTY PRZECHODZĄ
+
 namespace academia {
 
     class SchedulingItem {
