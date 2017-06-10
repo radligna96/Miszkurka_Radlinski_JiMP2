@@ -19,7 +19,7 @@ int main()
     cout<<ooo<<endl;
 
     double ot =4.33, uu =7.5;
-    cout<<Sum(ot,uu)<<endl;
+    cout<<Sum(ot,uu)<<""<<endl;
 
 
     vector <double> v2= {1,2,3.5};

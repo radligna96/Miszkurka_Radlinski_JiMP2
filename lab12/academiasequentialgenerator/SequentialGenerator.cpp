@@ -1,5 +1,5 @@
 //
-// Created by radligna on 05.06.17.
+// Created by radligna on 10.06.17.
 //
 
 #include "SequentialGenerator.h"
