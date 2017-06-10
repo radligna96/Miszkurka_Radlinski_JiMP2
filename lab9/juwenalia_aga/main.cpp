@@ -38,7 +38,7 @@ int main ()
     std::cout << "POSORTOWANY PLECAK" <<std::endl;
     for (auto produkt : ignacjusz.plecak_studenta.prowianty_)
     {
-        std::cout<<iter<< ".  "<<produkt.get().nazwa<<std::endl;
+        std::cout<<iter<< ".  "<<produkt.get().nazwa<<""<<std::endl;
         iter++;
     }
 
