@@ -37,7 +37,7 @@ namespace tree{
 
     template <class T>
     PreOrderTreeIterator<T> PreOrderTreeView<T>::begin() {
-        tree_iterator.iter = 1;
+        tree_iterator.iter = 0;
         return tree_iterator;
     }
 
@@ -50,7 +50,7 @@ namespace tree{
     template <class T>
     PreOrderTreeView<T> PreOrder(Tree<T> *root){
     return PreOrderTreeView<T>(root);
-}
+    }
 
 }
 

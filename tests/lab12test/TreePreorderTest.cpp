@@ -167,7 +167,7 @@ TEST_F(TreePreorderTest, PreOrderTreeViewReturnsDifferentInstancesOfIterators) {
   EXPECT_EQ(-20, *b2);
   EXPECT_EQ(-20, *b3);
 }
-/*
+
 TEST_F(TreePreorderTest, PreOrderMethodMaybeUsedInContextOfFor) {
   for (const int &value_in_tree : PreOrder(&simple_tree)) {
     //see test below
@@ -194,4 +194,4 @@ TEST_F(TreePreorderTest, PreOrderMethodProvidesProperOrderOfAtecPantheon) {
   }
 }
 
-*/
+
