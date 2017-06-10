@@ -24,7 +24,6 @@ namespace profiling {
         double measured_time = std::chrono::duration<double, std::milli>(t_end-t_start).count();
         return std::make_pair(returned, measured_time);
     }
-
 }
 
 #endif //JIMP_EXERCISES_TIMERECORDER_H

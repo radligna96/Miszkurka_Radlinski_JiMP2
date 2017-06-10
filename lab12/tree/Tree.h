@@ -46,9 +46,7 @@ namespace tree{
         }
         int Depth();
 
-        bool operator<(const Tree &other) const {
-            return this->value < other.value;
-        }
+        bool operator<(const Tree &other) const;
         //Tree<T> Find(T value);
         void Insert(T value);
     };
@@ -106,7 +104,13 @@ namespace tree{
         }
     }
 
+    template <class T>
+    bool Tree<T>::operator<(const Tree &other) const {
+        return this->value < other.value;
+    }
+
 /*
+ * Kod napisany na zajeciach
     template<class T>
     void Tree<T>::Insert(T value) {
         if(size == 0) {
@@ -143,9 +147,7 @@ namespace tree{
             }
         }
     }
-*/
 
-/*
     template<class T>
     Tree<T> Tree<T>::Find(T value) {
         std::cout<<this->value<<std::endl;
