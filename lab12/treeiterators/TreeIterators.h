@@ -6,8 +6,6 @@
 #define JIMP_EXERCISES_TREEITERATORS_H
 
 #include <Tree.h>
-#include "TreeInorder.h"
-#include "TreePostorder.h"
 
 namespace tree {
 
@@ -55,13 +53,116 @@ namespace tree {
     }
 
 
+
+    //Things below have to be declared here 'cause in TreeInorderTest there is no "TreeInorder.h" included (only TreeIterators). See preorder test - written correctly
+
     template <class T>
-    class PreOrderTreeIterator : public TreeIterator<T> {
+    class InOrderTreeIterator : public TreeIterator<T> {
     public:
-        PreOrderTreeIterator(){};
-        PreOrderTreeIterator(Tree<T> * ptr);
+        InOrderTreeIterator(){};
+        InOrderTreeIterator(Tree<T> * ptr);
         void BuildVector(Tree<T> *node);
     };
+
+    template <class T>
+    InOrderTreeIterator<T>::InOrderTreeIterator(Tree<T> *ptr) : TreeIterator<T>(ptr){
+        BuildVector(ptr);
+    }
+
+    template <class T>
+    void InOrderTreeIterator<T>::BuildVector(Tree<T> *node) {
+        if (node->left) BuildVector(node->left.get());
+        this->PushBack(node->value);
+        if (node->right) BuildVector(node->right.get());
+    }
+
+
+    template <class T>
+    class InOrderTreeView {
+    public:
+        InOrderTreeView(){};
+        InOrderTreeView(Tree<T> * root);
+        InOrderTreeIterator<T> begin();
+        InOrderTreeIterator<T> end();
+        InOrderTreeIterator<T> tree_iterator;
+    };
+
+    template <class T>
+    InOrderTreeView<T>::InOrderTreeView(Tree<T> *root) : tree_iterator(root)  {
+    }
+
+    template <class T>
+    InOrderTreeIterator<T> InOrderTreeView<T>::begin() {
+        tree_iterator.iter = 0;
+        return tree_iterator;
+    }
+
+    template <class T>
+    InOrderTreeIterator<T> InOrderTreeView<T>::end() {
+        tree_iterator.iter = int(tree_iterator.iterated.size());
+        return tree_iterator;
+    }
+
+    template <class T>
+    InOrderTreeView<T> InOrder(Tree<T> *root){
+        return InOrderTreeView<T>(root);
+    }
+
+
+    //same as above...
+
+    template <class T>
+    class PostOrderTreeIterator : public TreeIterator<T> {
+    public:
+        PostOrderTreeIterator(){};
+        PostOrderTreeIterator(Tree<T> * ptr);
+        void BuildVector(Tree<T> *node);
+    };
+
+    template <class T>
+    PostOrderTreeIterator<T>::PostOrderTreeIterator(Tree<T> *ptr) : TreeIterator<T>(ptr){
+        BuildVector(ptr);
+    }
+
+    template <class T>
+    void PostOrderTreeIterator<T>::BuildVector(Tree<T> *node) {
+        if (node->left) BuildVector(node->left.get());
+        if (node->right) BuildVector(node->right.get());
+        this->PushBack(node->value);
+    }
+
+
+    template <class T>
+    class PostOrderTreeView {
+    public:
+        PostOrderTreeView(){};
+        PostOrderTreeView(Tree<T> * root);
+        PostOrderTreeIterator<T> begin();
+        PostOrderTreeIterator<T> end();
+        PostOrderTreeIterator<T> tree_iterator;
+    };
+
+    template <class T>
+    PostOrderTreeView<T>::PostOrderTreeView(Tree<T> *root) : tree_iterator(root)  {
+    }
+
+    template <class T>
+    PostOrderTreeIterator<T> PostOrderTreeView<T>::begin() {
+        tree_iterator.iter = 0;
+        return tree_iterator;
+    }
+
+    template <class T>
+    PostOrderTreeIterator<T> PostOrderTreeView<T>::end() {
+        tree_iterator.iter = int(tree_iterator.iterated.size());
+        return tree_iterator;
+    }
+
+    template <class T>
+    PostOrderTreeView<T> PostOrder(Tree<T> *root){
+        return PostOrderTreeView<T>(root);
+    }
+
 
 }
 

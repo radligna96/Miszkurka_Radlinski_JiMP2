@@ -9,6 +9,14 @@
 namespace tree{
 
     template <class T>
+    class PreOrderTreeIterator : public TreeIterator<T> {
+    public:
+        PreOrderTreeIterator(){};
+        PreOrderTreeIterator(Tree<T> * ptr);
+        void BuildVector(Tree<T> *node);
+    };
+
+    template <class T>
     PreOrderTreeIterator<T>::PreOrderTreeIterator(Tree<T> *ptr) : TreeIterator<T>(ptr){
         BuildVector(ptr);
     }

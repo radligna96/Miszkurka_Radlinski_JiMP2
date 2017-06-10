@@ -6,9 +6,6 @@
 #define JIMP_EXERCISES_TREEPOSTORDER_H
 
 
-class TreePostorder {
-
-};
-
+// tutaj powinny byc klasy postorder z pliku TreeIterators.h ale testy nie przechodza..
 
 #endif //JIMP_EXERCISES_TREEPOSTORDER_H

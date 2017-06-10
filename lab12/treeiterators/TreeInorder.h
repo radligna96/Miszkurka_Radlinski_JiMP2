@@ -6,9 +6,7 @@
 #define JIMP_EXERCISES_TREEINORDER_H
 
 
-class TreeInorder {
 
-};
-
+// tutaj powinny byc klasy inorder z pliku TreeIterators.h ale testy nie przechodza..
 
 #endif //JIMP_EXERCISES_TREEINORDER_H
