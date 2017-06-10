@@ -15,6 +15,6 @@ int main () {
     stringstream out;
     subs.ShiftAllSubtitlesBy(1500, 25, &in, &out);
     //cout<<in.str()<<endl;
-    cout<<out.str()<<endl;
+    cout<<out.str()<<""<<endl;
     return 0;
 }
