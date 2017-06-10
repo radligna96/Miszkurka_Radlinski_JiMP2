@@ -13,6 +13,6 @@ int main() {
     schedule.InsertScheduleItem(SchedulingItem {1,2,3,4,6});
 
     std::set<int> secik {10,20};
-    std::cout<<secik.size();
+    std::cout<<secik.size()<<"";
     return 0;
 }
