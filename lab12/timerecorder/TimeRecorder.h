@@ -17,21 +17,13 @@ using std::pair;
 
 namespace profiling {
     template<typename T>
-    pair<T, double>TimeRecorder(T sumthing()){
-        clock_t begin = clock();
-        T somethin = sumthing();
-        clock_t end = clock();
-        return std::make_pair(somethin, (double)(end - begin));
+    auto TimeRecorder(T to_call){
+        auto t_start = std::chrono::high_resolution_clock::now();
+        auto returned = (to_call)();
+        auto t_end = std::chrono::high_resolution_clock::now();
+        double measured_time = std::chrono::duration<double, std::milli>(t_end-t_start).count();
+        return std::make_pair(returned, measured_time);
     }
-
-    template<typename T>
-    pair<T, double>TimeRecorder(std::function<T()>lambda){
-        clock_t begin = clock();
-        T somethin = lambda();
-        clock_t end = clock();
-        return std::make_pair(somethin, (double)(end - begin));
-    }
-
 
 }
 
