@@ -72,3 +72,4 @@ TEST_F(TreeTest, CanInsertMoreValuesIntoTree) {
   EXPECT_EQ(6, tree.Size());
   EXPECT_EQ(3, tree.Depth());
 }
+
