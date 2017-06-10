@@ -69,13 +69,13 @@ namespace academia {
 
 
     template <class T,class U>
-    bool operator== ( U other , T cos) {
-        return int(cos) == int(other);
+    bool operator== ( U other , T yet_another) {
+        return int(other) == int(yet_another);
     }
 
     template <class T,class U>
-    bool operator!= ( U other , T cos) {
-        return int(cos) != int(other);
+    bool operator!= ( U other , T yet_another) {
+        return int(other) != int(yet_another);
     }
 }
 

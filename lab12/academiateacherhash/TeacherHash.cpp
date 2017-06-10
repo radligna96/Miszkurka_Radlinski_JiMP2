@@ -30,7 +30,7 @@ size_t academia::TeacherHash::operator()(const academia::Teacher &teacher) const
     size_t h_n = std::hash<string>{}(teacher.name);
     size_t h_d = std::hash<string>{}(teacher.department);
     size_t h_id = std::hash<int>{}(teacher.id.id);
-    return h_d + h_n + h_id;
+    return h_d + h_id + h_n;
 }
 
 size_t academia::TeacherHash::operator()() const {
