@@ -22,6 +22,10 @@ using std::regex;
 using std::smatch;
 using std::to_string;
 
+
+//WSZYSTKIE TESTY PRZECHODZA
+//Oprocz MicroDVD, SubRip dziala tez wiec liczymy na dodatkowe punkty
+
 namespace moviesubs {
 
     class MovieSubtitles {
