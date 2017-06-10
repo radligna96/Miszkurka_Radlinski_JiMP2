@@ -14,7 +14,7 @@ using ::std::literals::string_literals::operator""s;
 
 
 class TeacherHashTest : public ::testing::Test, MemLeakTest {
- public:
+public:
 };
 
 
@@ -49,7 +49,6 @@ TEST_F(TeacherHashTest, CanCompareSameTeachersAndReturnsTrue) {
   Teacher s2 = Teacher (TeacherId (1002), "Alozjzy", "Katedra Informatyki");
   EXPECT_EQ(s1, s2);
 }
-
 
 TEST_F(TeacherHashTest, CanCalculateHashOfTeacherUsingStructWithRedefinedFunctionCallOperator) {
   Teacher s1 = Teacher (TeacherId (1002), "Alozjzy", "Katedra Informatyki");
@@ -121,6 +120,5 @@ TEST_F(TeacherHashTest, CanInsertTeachersAsKeysIntoUnorderedMap) {
   EXPECT_EQ(100'000'000, m[s2]);
   EXPECT_EQ(98, m[s3]);
 }
-
 
 
