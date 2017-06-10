@@ -14,7 +14,7 @@ using std::cout;
 using std::endl;
 
 
-
+//WSZYSTKIE TESTY PRZECHODZA
 
 template <class ID_TYPE,class SIMPLE_TYPE>
 class SequentialIdGenerator {
