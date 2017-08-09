@@ -27,22 +27,10 @@ int main()
 {
 
     geometry::Point2D p2;
-    //std::cin >> p2;
-    geometry::Point3D p1(4,3,0);
-    //std::cin >> p1;
-    cout<<p2.Distance(p1)<<endl;        //distance tez liczony jest bez ostatniej wartosci Point3D
+    geometry::Point2D p3;
+    std::cin >> p2 >> p3;
+    std::cout<<p2<<p3;
 
-    p2.ToString(&cout);
-    cout<<endl;
-
-    std::stringstream p;
-    std::string o = "(5,4)";
-    p << o;
-    p>>p2;
-    p2.ToString(&cout);
-    cout<<p2;   // dla Point3D daje tylko dwie pierwsze wartosci
-    cout<<p1;
-    cout<<endl;
 
 
     return 0;

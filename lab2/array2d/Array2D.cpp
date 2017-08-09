@@ -50,3 +50,5 @@ int **Array2D(int wiersze, int kolumny)
 
 
 
+
+

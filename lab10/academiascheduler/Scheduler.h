@@ -36,8 +36,8 @@ namespace academia {
 
     class Schedule {
     public:
-        Schedule () {};
-        ~Schedule() {};
+        Schedule () {}
+        ~Schedule() {}
         Schedule (std::vector <SchedulingItem> item_v);
 
         Schedule OfTeacher(int teacher_id) const; //wylicza fragment harmonogramu związany z danym nauczycielem akademickim (może się przydać copy_if…)

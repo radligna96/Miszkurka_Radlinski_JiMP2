@@ -32,7 +32,7 @@ int main() {
         lista.emplace_back(pointer);
     }
 
-    for (auto iter : lista) {
+    for (const auto &iter : lista) {
         iter->rysuj();
     }
 

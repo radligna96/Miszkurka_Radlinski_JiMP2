@@ -3,8 +3,6 @@
 //
 #include "Serialization.h"
 
-
-
 class Base {
 public:
     virtual std::string foo() = 0;
@@ -27,17 +25,16 @@ public:
 private:
     Base *base_;
 };
+using namespace academia;
 
 int main() {
-    std::vector<std::reference_wrapper<Base>> bases;
-    Derived d1;
-    Derived d2;
-    bases.emplace_back(d1);
-    bases.emplace_back(d2);
-
-    for (Base &base : bases) {
-        cout << base.foo() << endl;
-    }
-
+    Room r1 {100167, "429", Room::Type::LECTURE_HALL};
+    Room r2 {100168, "208", Room::Type::COMPUTER_LAB};
+    Room r3 {100169, "216", Room::Type::COMPUTER_LAB};
+    Building building {11, "C2", {r1, r2, r3}};
+    stringstream out;
+    JsonSerializer serializer{&out};
+    building.Serialize(&serializer);
+    cout << out.str();
     return 0;
 }
