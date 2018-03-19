@@ -1,4 +1,4 @@
-### C++ programming classes problmes ###
+### C++ programming classes problems ###
 
 #### CLion CMakeLists.txt template ####
 
