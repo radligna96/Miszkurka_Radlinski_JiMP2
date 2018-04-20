@@ -5,20 +5,15 @@
 #include "SimpleForwardList.h"
 
 
-ForwardList *CreateNode(int value)
-{
-    ForwardList *first, *tmp;
-    first = nullptr;
-    tmp=new ForwardList;
-    tmp->value=value;
-    tmp->next=first;
-    first=tmp;
-
-    return first;
+ForwardList *CreateNode(int value) {
+    ForwardList *tmp;
+    tmp = new ForwardList;
+    tmp->value = value;
+    tmp->next = nullptr;
+    return tmp;
 }
 
-ForwardList *PushFront(ForwardList *list, int value)
-{
+ForwardList *PushFront(ForwardList *list, int value) {
     if (list) {
         ForwardList *tmp;
         tmp = new ForwardList;
@@ -26,43 +21,34 @@ ForwardList *PushFront(ForwardList *list, int value)
         tmp->next = list;
         list = tmp;
         return list;
-    }
-    else
+    } else
         return list;
 }
 
-void Append(ForwardList *list, ForwardList *tail){
-
-    while(list->next)
-        list= list->next;
-    list->next = tail;
-
-}
-
-void show (ForwardList *tmp)
-{   cout<<"pokazuje: ";
-    while (tmp!= nullptr){
-        cout<<tmp->value<<" ";
-        tmp=tmp->next;
-    }
-}
-void DestroyList(ForwardList *list) {
-    ForwardList *tmp;
-    if(list->next) {
-        while (list->next) {
-            tmp = list;
+void Append(ForwardList *list, ForwardList *tail) {
+    if(!list) {
+        
+    } else {
+        while (list->next)
             list = list->next;
-        }
-        //cout << tmp->next->value << " ";
-        tmp->next = nullptr;
-        delete tmp->next;
-        list = tmp;
-        //cout << list->value;
+        list->next = tail;
     }
-    else
+
+}
+
+void show(ForwardList *tmp) {
+    cout << "pokazuje: ";
+    while (tmp != nullptr) {
+        cout << tmp->value << " ";
+        tmp = tmp->next;
+    }
+}
+
+void DestroyList(ForwardList *list) {
+    while (list)
     {
-        cout <<"jestem popieprona";
-        list= nullptr;
-        delete list;
+        ForwardList* old = list;
+        list = list->next;
+        delete old;
     }
 }

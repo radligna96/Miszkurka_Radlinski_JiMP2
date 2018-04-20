@@ -6,36 +6,17 @@
 
 int main()
 {
-    ForwardList *tail;
-    tail = new ForwardList;
-    tail->value = 326;
-    tail->next = nullptr;
-    
     ForwardList *head = CreateNode(506);
-    
+    ForwardList *node = CreateNode(402);
+    ForwardList *node2 = CreateNode(400);
     show (head);
-    head = PushFront(head, 607);
-    cout<<endl;
-    show (head);
-    Append(head, tail);
-    head = PushFront(head, 4);
-    cout<<endl;
-    show (head);
-    DestroyList(head);
-    cout<<endl;
-    show (head);
-    DestroyList(head);
-    cout<<endl;
-    show (head);
-    DestroyList(head);
-    cout<<endl;
-    show (head);
-    DestroyList(head);
-    cout<<endl;
-    show (head);    
-    DestroyList(head);
-    cout<<endl;
-    show (head);
+    Append(node, node2);
+    Append(head, node);
+    show(head);
+    ForwardList *nHead = nullptr;
+    show(nHead);
+    Append(nHead, head);
+    show(nHead);
     return 0;
 
 }
